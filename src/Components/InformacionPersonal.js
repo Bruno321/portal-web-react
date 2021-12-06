@@ -1,54 +1,24 @@
 import React from 'react';
-import { InputName } from './InputName';
-import { Input } from './Input';
 
-const inputNames = [
-    'Nombre',
-    'Expediente',
-    'Curp',
-    'Imss',
-    'Correo Electronico',
-    'Pais de Nacimiento',
-    'Estado de Nacimiento',
-    'Municipio de Nacimiento',
-    'Estado',
-    'Pais',
-]
+import { DatosEditables } from './DatosEditables';
+import { DatosNoEditables } from './DatosNoEditables';
+import { DatosPadres } from './DatosPadres';
+
 
 export const InformacionPersonal = () => {
     // TODO API request
-    const value = [
-        'martina',
-        '69',
-        'TONTITA',
-        '123456789',
-        'aisheturabaka',
-        'ayer',
-        'cataMIERDA',
-        'niideanadieconoceahi',
-        'cataMIERDA',
-        'narizonia' 
-    ]
     return (
         <div style={styles.container}>
-            <img src='https://i.imgur.com/dJa0Hpl.jpg' style={styles.img}></img>
-            <div style={styles.inputContainer}>
-                { inputNames.map((element,i)=> {
-                    return (
-                        <div style={styles.inputContainer2}>
-                            <InputName name={element}/>
-                        </div>
-                    )
-                })}
+            <div style={styles.datosContainer}>
+                <DatosEditables/>
+                <DatosNoEditables fecha={'15/09/2000'} pais={'Mexico'} estado={'Distrito Federal'} municipio={'Coyoacan'}/>
             </div>
-            <div style={styles.inputContainer}>
-                { value.map((element,i)=> {
-                    return (
-                        <div style={styles.inputContainer2}>
-                            <Input name={element}/>
-                        </div>
-                    )
-                })}
+            <div style={styles.datosPadresContainer}>
+                <DatosPadres paterno={'Papa'} materno={'Papa'} nombres={'Papa'} fechaNacimiento={'Papa'} telefono={'Papa'}/>
+                <DatosPadres paterno={'Mama'} materno={'Mama'} nombres={'Mama'} fechaNacimiento={'Mama'} telefono={'Mama'}/>
+            </div>
+            <div style={styles.button}>
+                <h3>Enviar</h3>
             </div>
         </div>
     )
@@ -56,19 +26,21 @@ export const InformacionPersonal = () => {
 
 const styles = {
     container: {
-        flex: '1',
-        display: 'flex',
-        marginTop: '50px',
-        justifyContent: 'center',
-    },
-    inputContainer: {
         display: 'flex',
         flexDirection: 'column',
     },
-    inputContainer2: {
-        display:'flex'
+    datosContainer: {
+        display:'flex',
+        justifyContent: 'space-evenly',
     },
-    img: {
-        height: '300px',
+    datosPadresContainer: {
+        display: 'flex',
+        marginTop:'5vh',
+
+    },
+    button: {
+        marginTop:'5vh',
+        textAlign:'center',
+        cursor:'pointer'
     }
 }

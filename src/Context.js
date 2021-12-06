@@ -2,9 +2,7 @@ import React,{ createContext, useState } from "react";
 
 export const Context = createContext()
 const Provider = ({children})=> {
-    // const [isAuth,setIsAuth] = useState(false)
     const [isAuth,setIsAuth] = useState(()=>{
-        console.log('buscando', window.localStorage.getItem('token'))
         return window.localStorage.getItem('token')
     })
     

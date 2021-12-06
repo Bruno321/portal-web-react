@@ -2,7 +2,7 @@ import React,{ createContext, useState } from "react";
 
 export const RenderContext = createContext()
 const Provider = ({children})=> {
-    const [itemToRender,setitemToRender] = useState(1)
+    const [itemToRender,setitemToRender] = useState(2)
     
     const value = {
         itemToRender,

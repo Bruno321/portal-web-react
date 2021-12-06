@@ -1,0 +1,99 @@
+import React from 'react';
+
+export const Calificaciones = () => {
+    return (
+        <div style={styles.container}>
+            Calificaciones
+            Calificaciones
+            Calificaciones
+            Calificaciones
+            Calificaciones
+            Calificaciones
+            Calificaciones
+            Calificaciones
+            Calificaciones
+            Calificaciones
+            Calificaciones
+            Calificaciones
+            Calificaciones
+            Calificaciones
+            Calificaciones
+            Calificaciones
+            Calificaciones
+            Calificaciones
+            Calificaciones
+            Calificaciones
+            Calificaciones
+            Calificaciones
+            Calificaciones
+            Calificaciones
+            Calificaciones
+            Calificaciones
+            Calificaciones
+            Calificaciones
+            Calificaciones
+            Calificaciones
+            Calificaciones
+            Calificaciones
+            icaciones
+            Calificaciones
+            Calificaciones
+            Calificaciones
+            Calificacionesicaciones
+            Calificaciones
+            Calificaciones
+            Calificaciones
+            Calificacionesicaciones
+            Calificaciones
+            Calificaciones
+            Calificaciones
+            Calificacionesicaciones
+            Calificaciones
+            Calificaciones
+            Calificaciones
+            Calificacionesicaciones
+            Calificaciones
+            Calificaciones
+            Calificaciones
+            Calificacionesicaciones
+            Calificaciones
+            Calificaciones
+            Calificaciones
+            Calificacionesicaciones
+            Calificaciones
+            Calificaciones
+            Calificaciones
+            Calificacionesicaciones
+            Calificaciones
+            Calificaciones
+            Calificaciones
+            Calificacionesicaciones
+            Calificaciones
+            Calificaciones
+            Calificaciones
+            Calificacionesicaciones
+            Calificaciones
+            Calificaciones
+            Calificaciones
+            Calificacionesicaciones
+            Calificaciones
+            Calificaciones
+            Calificaciones
+            Calificacionesicaciones
+            Calificaciones
+            Calificaciones
+            Calificaciones
+            Calificacionesicaciones
+            Calificaciones
+            Calificaciones
+            Calificaciones
+            Calificaciones
+        </div>
+    )
+}
+
+const styles = {
+    container: {
+        width:'50%'
+    }
+}

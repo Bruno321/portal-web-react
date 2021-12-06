@@ -12,17 +12,16 @@ import { ConsultaEscolar } from '../Components/ConsultaEscolar';
 import { RenderContext } from '../RenderContext';
 
 export const Home = () => {
-    // const {itemToRender} = useContext(RenderContext)
-
+    const {itemToRender} = useContext(RenderContext)
 
     return(
         <div>
             <Header/>
             <Navbar/>
-            {/* <div style={styles.container}>
+            <div style={styles.container}>
                 {itemToRender==1 && <InformacionPersonal/>}
                 {itemToRender==2 && <ConsultaEscolar/>}
-            </div> */}
+            </div>
             <Footer/>
         </div>
     )
@@ -31,7 +30,7 @@ export const Home = () => {
 const styles = {
     container: {
         display: 'flex',
-        weight: '100%',
-        height: '55vh',
+        height: '60vh',
+        justifyContent: 'center',
     }
 }

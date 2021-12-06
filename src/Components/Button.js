@@ -3,15 +3,23 @@ import React, {useContext} from 'react';
 import { RenderContext } from '../RenderContext';
 
 export const Button = ({text,value}) => {
-   
-    // const {changueItem} = useContext(RenderContext)
+    const {itemToRender} = useContext(RenderContext)
 
-    return (
-        // <div style={styles.container} onClick={()=>changueItem(value)}>
-        <div style={styles.container}>
-            {text}
-        </div>
-    )
+    const {changueItem} = useContext(RenderContext)
+
+    if(itemToRender==value){
+        return (
+            <div style={{...styles.container,...styles.selected}} onClick={()=>changueItem(value)}>
+                {text}
+            </div>
+        )
+    }else{
+        return (
+            <div style={styles.container} onClick={()=>changueItem(value)}>
+                {text}
+            </div>
+        )
+    }
 }
 
 const styles = {
@@ -21,5 +29,8 @@ const styles = {
         textAlign: 'center',
         padding:'25px',
         cursor:'pointer',
+    },
+    selected: {
+        backgroundColor: '#A9A9A9'
     }
 }

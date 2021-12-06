@@ -6,8 +6,8 @@ import RenderContext from './RenderContext'
 
 ReactDOM.render(
     <Context.Provider>
-        {/* <RenderContext.Provider> */}
+        <RenderContext.Provider>
             <App/>
-        {/* </RenderContext.Provider> */}
+        </RenderContext.Provider>
     </Context.Provider>,
     document.getElementById('app'))
