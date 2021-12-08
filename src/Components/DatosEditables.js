@@ -2,7 +2,7 @@ import React from 'react';
 import { Input } from './Input';
 import { InputName } from './InputName';
 
-export const DatosEditables = () => {
+export const DatosEditables = ({props}) => {
     return (
         <div style={styles.container}>
             <div style={styles.inputContainer}>
@@ -34,28 +34,28 @@ export const DatosEditables = () => {
             </div>
             <div style={styles.inputContainer}>
                 <div style={styles.inputContainer2}>
-                    <Input name={'bru'}/>
+                    <Input name={props.calleYnumero}/>
                 </div>
                 <div style={styles.inputContainer2}>
-                    <Input name={'bru'}/>
+                    <Input name={props.colonia}/>
                 </div>
                 <div style={styles.inputContainer2}>
-                    <Input name={'bru'}/>
+                    <Input name={props.codigoPostal}/>
                 </div>
                 <div style={styles.inputContainer2}>
-                    <Input name={'bru'}/>
+                    <Input name={props.estado}/>
                 </div>
                 <div style={styles.inputContainer2}>
-                    <Input name={'bru'}/>
+                    <Input name={props.municipio}/>
                 </div>
                 <div style={styles.inputContainer2}>
-                    <Input name={'bru'}/>
+                    <Input name={props.telefonoFijo}/>
                 </div>
                 <div style={styles.inputContainer2}>
-                    <Input name={'bru'}/>
+                    <Input name={props.email}/>
                 </div>
                 <div style={styles.inputContainer2}>
-                    <Input name={'bru'}/>
+                    <Input name={props.telefonoCelular}/>
                 </div>
             </div>
         </div>

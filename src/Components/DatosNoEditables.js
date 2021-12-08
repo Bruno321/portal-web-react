@@ -19,12 +19,12 @@ export const DatosNoEditables = ({fecha,pais,estado,municipio}) => {
             </div>
 
             <div style={styles.a}>
-                <h3>Pais de nacimiento</h3>
+                <h3>Estado de nacimiento</h3>
                 <p>{estado}</p>
             </div>
 
             <div style={styles.a}>
-                <h3>Pais de nacimiento</h3>
+                <h3>Municipio de nacimiento</h3>
                 <p>{municipio}</p>
             </div>
 
@@ -38,7 +38,6 @@ const styles = {
         flexDirection: 'column',
         textAlign: 'center', 
         fontFamily:'Arial',
-        marginLeft:'400px'
     },
     a: {
         textAlign: 'center',

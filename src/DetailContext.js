@@ -2,12 +2,12 @@ import React,{ createContext, useState } from "react";
 
 export const RenderContext = createContext()
 const Provider = ({children})=> {
-    const [itemToRender,setitemToRender] = useState(1)
+    const [detailToRender,setDetailToRender] = useState()
     
     const value = {
-        itemToRender,
-        changueItem:(value)=>{
-            setitemToRender(value)
+        detailToRender,
+        changueDetailToRender:(value)=>{
+            setDetailToRender(value)
         },
     }
 

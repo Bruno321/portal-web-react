@@ -22,7 +22,7 @@ export const Header = () => {
             </div>
             <div style={styles.cerrarSesionContainer}>
                 <div onClick={removeAuth} style={styles.button}>Cerrar sesion</div>
-            </div>
+            </div> 
         </div>
     )
 }
@@ -31,7 +31,7 @@ const styles = {
     container: {
         display: 'flex',
         weight: '100%',
-        height: '15vh'
+        height: '15vh',
     },
     homeInformation: {
         flex: '60%',
