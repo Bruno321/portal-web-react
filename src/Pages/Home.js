@@ -142,7 +142,7 @@ export const Home = () => {
                             {itemToRender==7 && <div>No disponible por el momento</div>}
                             
                         </div> :  
-                        <div>CARGANDO</div>
+                        <div style={{textAlign: 'center', marginTop: '15%', fontSize: '30px',}}>Seccion no disponible por el momento, intente mas tarde.</div>
                 }
                 
                 <Footer/>

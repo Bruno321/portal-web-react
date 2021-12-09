@@ -31,6 +31,6 @@ const styles = {
         cursor:'pointer',
     },
     selected: {
-        backgroundColor: '#A9A9A9'
+        backgroundColor: '#8395a7'
     }
 }

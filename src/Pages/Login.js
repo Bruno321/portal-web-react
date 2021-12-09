@@ -3,6 +3,9 @@ import {Context}  from '../Context'
 import {Footer} from '../Components/Footer'
 import { Input } from '../Components/Input';
 
+import logoPortal from '../assets/logo_portal.png'
+import logoUaq from '../assets/logoUaq.png'
+
 export const Login = () => {
     // Usamos el consumer para poder usar la funcion que pasamos en el provider
 
@@ -11,56 +14,54 @@ export const Login = () => {
 
     const {activateAuth,activateAdmin,isAdmin,failed} = useContext(Context)
     return(
-        <div>
+        <div style={{backgroundColor: '#FDFDFD',}}>
             <div style={styles.container}>
                 <div style={styles.headerDiv}>
                     <div style={styles.headerDiv2}>
                         <div style={{marginRight:'20px'}}>
-                            <img src='https://i.imgur.com/dJa0Hpl.jpg' ></img>
+                            <img src={logoPortal} ></img>
                         </div>
                         <div style={styles.information}>
-                            <h3>PORTAL UAQ</h3>
+                            <h3 style={{color: 'white', fontWeight: 'bold'}}>PORTAL UAQ</h3>
                             <br/>
-                            <p>Secretaría académica</p>
-                            <p>Dirección de Servicios Académicos</p>
-                            {
-                                failed && <p style={{color:"red"}}>Usuario o contraseña incorrectos</p>
-                            }
+                            <p style={{color: 'white', fontWeight: 'bold'}}>Secretaría académica</p>
+                            <p style={{color: 'white', fontWeight: 'bold'}}>Dirección de Servicios Académicos</p>
                         </div>
                         <div style={{marginLeft:'20px'}}>
-                            <img src='https://i.imgur.com/dJa0Hpl.jpg' ></img>
+                            <img src={logoUaq} ></img>
                         </div>
                     </div>
-                    </div>
-
+                </div>
             </div>
             <div style={styles.container2}>
 
                 <div style={styles.container3}>
 
                     <div style={styles.container4}>
-                        <h3 >Bienvenido al portal UAQ</h3>
-                        <p style={{marginTop:'10px'}}>Ingresa tus claves para iniciar sesión</p>
+                        <h3 style={{fontSize: '30px'}}>Bienvenido al portal UAQ</h3>
+                        <p style={{marginTop:'10px', fontSize: '25px'}}>Ingresa tus claves para iniciar sesión</p>
                     </div>
 
                     <div style={styles.container5}>
                         <form onSubmit={(e)=>activateAuth(e,usuario,nip)} style={{padding:'20px'}}>
                             <div style={styles.container6}>
-                                <div style={styles.container7}><div style={styles.container8}>Expediente/Num trabajador</div></div>
-                                <div style={styles.container7_2}><input style={styles.container8} onChange={(e)=>setUsuario(e.target.value)}  value={usuario}/></div>
+                                <div style={styles.container7}><div style={styles.container8_1}>Expediente/Num trabajador</div></div>
+                                <div style={styles.container7_2}><input style={styles.container8_2} onChange={(e)=>setUsuario(e.target.value)}  value={usuario}/></div>
                             </div>
 
                             <div style={styles.container6}>
-                                <div style={styles.container7}><div style={styles.container8}>NIP</div></div>
-                                <div style={styles.container7_2}><input type={"password"} style={styles.container8} onChange={(e)=>setNip(e.target.value)}  value={nip}/></div>
+                                <div style={styles.container7}><div style={styles.container8_1}>NIP</div></div>
+                                <div style={styles.container7_2}><input type={"password"} style={styles.container8_2} onChange={(e)=>setNip(e.target.value)}  value={nip}/></div>
                             </div>
-                           
 
                             <div style={styles.container6_2}>
                                 <div>Soy administrativo<input type={"checkbox"}  onChange={()=>activateAdmin(!isAdmin)} defaultChecked={isAdmin} style={{marginRight:'20px',marginLeft:'20px'}}/></div>
-                                <div><a style={{textDecoration:'underline',color:'#5564eb'}}>Olvidé mi NIP</a></div>
+                                <div><a style={{textDecoration:'underline',color:'#5564eb', cursor:'pointer',}}>Olvidé mi NIP</a></div>
                             </div>
 
+                            {
+                                failed && <p style={styles.usuarioIncorrecto}>Usuario o contraseña incorrectos</p>
+                            }
                             <div style={styles.container9}>
                                 <div><button style={styles.button} type="submit">Iniciar sesion</button></div>
                             </div>
@@ -70,7 +71,6 @@ export const Login = () => {
 
                 </div>
             </div>
-
             <Footer/>
         </div>
     )
@@ -79,9 +79,10 @@ export const Login = () => {
 const styles = {
     container: {
         width:'100%',
-        height:'20vh',
+        height:'15vh',
         display: 'flex',
         justifyContent:'center',
+        backgroundColor: '#268A7E'
     },
     headerDiv:{
         display: 'flex',
@@ -99,7 +100,7 @@ const styles = {
     },
     container2:{
         width:'100%',
-        height:'65vh',
+        height:'80vh',
         display:'flex',
         alignItems:'center',
         justifyContent:'center'
@@ -163,12 +164,23 @@ const styles = {
         padding:'20px',
         
     },
-    container8:{
+    container8_1:{
         width:'100%',
         height:'100%',
         justifyContent:'center',
         alignItems:'center',
-        display:'grid' 
+        display:'grid',
+        fontSize: '20px',
+    },
+    container8_2:{
+        width:'100%',
+        height:'100%',
+        justifyContent:'center',
+        alignItems:'center',
+        display:'grid',
+        fontSize: '20px',
+        paddingLeft: '10px',
+        color: '#777'
     },
     container9:{
         display: 'flex',
@@ -179,5 +191,16 @@ const styles = {
         cursor:'pointer',
         width: '100px',
         height: '30px',
+    },
+    usuarioIncorrecto:{
+        color: 'white',
+        backgroundColor: 'red',
+        borderRadius: '5px',
+        fontSize: '20px',
+        textAlign: 'center',
+        justifyContent: 'center',
+        alignItems:'center',
+        width: '400px',
+        marginLeft: '30%',
     }
 }
