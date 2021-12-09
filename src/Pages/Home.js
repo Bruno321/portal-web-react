@@ -74,14 +74,44 @@ export const Home = () => {
         )
     }
     if(isProfesor){
+        const [data,setData] = useState({
+            loading:true, 
+            datosPersonales: {}
+        })
+
+        const [allData,setAllData] = useState({
+            numTrabajador:"",
+            materiasEnCursos: []
+        })
+
+        useEffect(() => {
+            axios.get('http://localhost:3000/datosTrabajador',{headers:{"Access-Control-Allow-Origin":null,'Authorization': `Bearer ${token}`}, mode: 'cors'})
+            .then((response)=>{
+                setData({...data,loading:false})
+                setData({
+                    datosPersonales:response.data.message.datosPersonaleId
+                })
+                setAllData(response.data.message)
+            }).catch((e)=>{
+                setFailed(true)
+                console.log(e)
+            })
+        }, [])
         return (
             <div>
                 <Header/>
                 <ProfesorNav/>
                 <div style={styles.container}>
+                    {
+                        !data.loading ?
+                        <div style={styles.container}>
+                            {itemToRender==1 && <InformacionPersonalTrabajador props={data} numTrabajador={allData.numTrabajador}/>}
+                            {itemToRender==2 && <MateriasAdmin props={allData.materiasEnCursos}/>}
+                            {itemToRender==8 && <MateriaInfo/>}
+                        </div> :  
+                        <div>CARGANDO</div>
+                    }
                     
-                    {itemToRender==1 && <InformacionPersonal/>}
-                    {itemToRender==2 && <MateriasAdmin/>}
                 </div>
             </div>
         )

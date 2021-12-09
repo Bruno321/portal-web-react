@@ -25,14 +25,14 @@ export const Materia = ({props,isTitle,isImage,isDesplegable}) => {
     if(isDesplegable){
         return (
             <div style={styles.container3}>
-                 <label for="cars">Calificacion:</label>
-                    <select name="cars" id="cars">
-                    <option value="volvo">NA</option>
-                    <option value="saab">6</option>
-                    <option value="mercedes">7</option>
-                    <option value="audi">8</option>
-                    <option value="audi">9</option>
-                    <option value="audi">10</option>
+                 <label for="cal">Calificacion:</label>
+                    <select name="cal" id="cal">
+                    <option value="na">NA</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
                 </select> 
             </div>
         )
