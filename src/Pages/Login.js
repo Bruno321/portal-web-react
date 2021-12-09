@@ -52,12 +52,12 @@ export const Login = () => {
 
                             <div style={styles.container6}>
                                 <div style={styles.container7}><div style={styles.container8}>NIP</div></div>
-                                <div style={styles.container7_2}><input style={styles.container8} onChange={(e)=>setNip(e.target.value)}  value={nip}/></div>
+                                <div style={styles.container7_2}><input type={"password"} style={styles.container8} onChange={(e)=>setNip(e.target.value)}  value={nip}/></div>
                             </div>
                            
 
                             <div style={styles.container6_2}>
-                                <div>Soy administrativo<input type={"checkbox"} onChange={()=>activateAdmin(!isAdmin)} defaultChecked={isAdmin} style={{marginRight:'20px',marginLeft:'20px'}}/></div>
+                                <div>Soy administrativo<input type={"checkbox"}  onChange={()=>activateAdmin(!isAdmin)} defaultChecked={isAdmin} style={{marginRight:'20px',marginLeft:'20px'}}/></div>
                                 <div><a style={{textDecoration:'underline',color:'#5564eb'}}>Olvidé mi NIP</a></div>
                             </div>
 

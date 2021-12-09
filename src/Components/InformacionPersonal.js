@@ -13,16 +13,7 @@ export const InformacionPersonal = ({props}) => {
     const datosPadre = props.datosPadre
     const datosAlumno = props.datosAlumno
     
-    // const [form ,setForm] = useState({
-    //     calleYnumero:'',
-    //     colonia:'',
-    //     codigoPostal:'',
-    //     estado:'',
-    //     municipio:'',
-    //     telefonoFijo:'',
-    //     email:'',
-    //     telefonoCelular:'',
-    // })
+
 
     const [form ,setForm] = useState(props)
     const [madreForm,setMadreForm] = useState(props)
@@ -35,9 +26,6 @@ export const InformacionPersonal = ({props}) => {
     }, [props])
 
 
-    // console.log(form)
-    // console.log(madreForm)
-    // console.log(padreForm)
 
     const handleClick = () => {
         

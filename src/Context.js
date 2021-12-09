@@ -25,30 +25,43 @@ const Provider = ({children})=> {
         activateAuth:(e,usuario,nip)=>{
             e.preventDefault();
 
-            axios.post('http://localhost:3000/loginAlumno',{
-                exp:usuario,
-                nip:nip
-            },{headers:{"Access-Control-Allow-Origin":null}, mode: 'cors',}).then((response)=>{
-                console.log('KAKOTAAA',response)
-                setIsAuth(true)
-                // estudiante se activa con el token
-                if(isStudent){
-                    window.localStorage.setItem('isStudent',isStudent)
-                }
-                // profesor se activa con el token
-                if(isProfesor){
-                    window.localStorage.setItem('isProfesor',isProfesor)
-                }
-                // se activa con el checkox
-                if(isAdmin){
-                    window.localStorage.setItem('isAdmin',isAdmin)
-                }
-                // Devuelve un token y lo guardamos
-                window.localStorage.setItem('token',response.data.message)
-            }).catch((e)=>{
-                setFailed(true)
-                console.log(e)
-            })
+            if(isAdmin){
+                axios.post('http://localhost:3000/loginTrabajador',{
+                    numTrabajador:usuario,
+                    nip:nip
+                },{headers:{"Access-Control-Allow-Origin":null}, mode: 'cors',}).then((response)=>{
+
+                    // es admin
+                    if(response.data.isAdmin){
+                        window.localStorage.setItem('isAdmin',true)
+                    }else{
+                        window.localStorage.setItem('isProfesor',true)
+                    }
+                    setIsAuth(true)
+                    window.localStorage.setItem('token',response.data.message)
+                }).catch((e)=>{
+                    setFailed(true)
+                    console.log(e)
+                })
+            }else{
+                axios.post('http://localhost:3000/loginAlumno',{
+                    exp:usuario,
+                    nip:nip
+                },{headers:{"Access-Control-Allow-Origin":null}, mode: 'cors',}).then((response)=>{
+                    setIsAuth(true)
+                    // estudiante se activa con el token
+                    if(isStudent){
+                        window.localStorage.setItem('isStudent',true)
+                    }
+                    // se activa con el checkox
+                    // Devuelve un token y lo guardamos
+                    window.localStorage.setItem('token',response.data.message)
+                }).catch((e)=>{
+                    setFailed(true)
+                    console.log(e)
+                })
+            }
+
         },
         removeAuth:()=>{
             // Aqui hacemos la solicitud al api

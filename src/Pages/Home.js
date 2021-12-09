@@ -12,6 +12,9 @@ import { ProfesorNav } from '../Components/ProfesorNav';
 import { MateriasAdmin } from '../Components/MateriasAdmin';
 import { AlumnosAdmin } from '../Components/AlumnosAdmin';
 import { MateriaInfo } from '../Components/MateriaInfo';
+import { InformacionPersonalTrabajador } from '../Components/InformacionPersonalTrabajador';
+import { AltaAlumno } from '../Components/AltaAlumno';
+import { OpcionesAlumno } from '../Components/OpcionesAlumno';
 
 
 // Context
@@ -21,58 +24,51 @@ import { Context } from '../Context';
 
 export const Home = () => {
     const {itemToRender} = useContext(RenderContext)
-    const {isAdmin,isProfesor,isStudent,isAuth} = useContext(Context)
-    const [calificaciones,setCalificaciones] = useState({})
-    const [planEstudio,setPlanEstudio] = useState({})
-    const  [data, setData] = useState({
-        loading:true,
-        datosPersonales:{},
-        datosMadre:{},
-        datosPadre:{},
-        datosAlumno:{}
-    })
-
-
-    const [consultaData,setConsultaData] = useState({})
-    
+    const {isAdmin,isProfesor,isStudent} = useContext(Context)
     const token =  window.localStorage.getItem('token')
-    useEffect(()=>{
-        // axios.post('http://localhost:3000/alumnoInfo',{id:290253},{headers:{"Access-Control-Allow-Origin":null}, mode: 'cors'})
-        axios.get('http://localhost:3000/alumnoInfo',{headers:{"Access-Control-Allow-Origin":null,'Authorization': `Bearer ${token}`}, mode: 'cors'})
-        .then((response)=>{
-            // console.log(response.data.message) 
-            let query = response.data.message
-            setData({...data,loading:false})
-            setData({
-                datosPersonales:query.datosPersonaleId,
-                datosMadre:query.datosMadreId,
-                datosPadre:query.datosPadreId,
-                datosAlumno:{
-                    expediente:query.expediente,
-                    nombre:query.nombre,
-                    curp:query.curp,
-                    imss:query.imss,
-                }
-            })
-            setConsultaData(response.data.message)
-            setCalificaciones(response.data.materiasCursadas)
-            setPlanEstudio(response.data.planEstudio)
-        }).catch((e)=>{
-            setFailed(true)
-            console.log(e)
-        })
-    },[])
 
     if(isAdmin){
+        const [data,setData] = useState({
+            loading:true, 
+            datosPersonales: {}
+        })
+
+        const [allData,setAllData] = useState({
+            numTrabajador:"",
+            materiasEnCursos: []
+        })
+
+        useEffect(() => {
+            axios.get('http://localhost:3000/datosTrabajador',{headers:{"Access-Control-Allow-Origin":null,'Authorization': `Bearer ${token}`}, mode: 'cors'})
+            .then((response)=>{
+                setData({...data,loading:false})
+                setData({
+                    datosPersonales:response.data.message.datosPersonaleId
+                })
+                setAllData(response.data.message)
+            }).catch((e)=>{
+                setFailed(true)
+                console.log(e)
+            })
+        }, [])
         return (
             <div>
                 <Header/>
                 <AdminNav/>
                 <div style={styles.container}>
-                    {itemToRender==1 && <InformacionPersonal/>}
-                    {itemToRender==2 && <MateriasAdmin/>}
-                    {itemToRender==3 && <AlumnosAdmin/>}
-                    {itemToRender==7 && <MateriaInfo/>}
+                {
+                    !data.loading ? 
+                        <div style={styles.container}>
+                            {itemToRender==1 && <InformacionPersonalTrabajador props={data} numTrabajador={allData.numTrabajador}/>}
+                            {itemToRender==2 && <MateriasAdmin props={allData.materiasEnCursos}/>}
+                            {itemToRender==3 && <AlumnosAdmin/>}
+                            {itemToRender==8 && <MateriaInfo/>}
+                            {itemToRender==9 && <AltaAlumno/>}
+                            {itemToRender==10 && <OpcionesAlumno/>}
+                        </div> :  
+                        <div>CARGANDO</div>
+                }
+                    
                 </div>
             </div>
         )
@@ -83,6 +79,7 @@ export const Home = () => {
                 <Header/>
                 <ProfesorNav/>
                 <div style={styles.container}>
+                    
                     {itemToRender==1 && <InformacionPersonal/>}
                     {itemToRender==2 && <MateriasAdmin/>}
                 </div>
@@ -90,6 +87,45 @@ export const Home = () => {
         )
     }
     if(isStudent){
+        const [calificaciones,setCalificaciones] = useState({})
+        const [planEstudio,setPlanEstudio] = useState({})
+        const  [data, setData] = useState({
+            loading:true,
+            datosPersonales:{},
+            datosMadre:{},
+            datosPadre:{},
+            datosAlumno:{}
+        })
+    
+    
+        const [consultaData,setConsultaData] = useState({})
+        
+        useEffect(()=>{
+            // axios.post('http://localhost:3000/alumnoInfo',{id:290253},{headers:{"Access-Control-Allow-Origin":null}, mode: 'cors'})
+            axios.get('http://localhost:3000/alumnoInfo',{headers:{"Access-Control-Allow-Origin":null,'Authorization': `Bearer ${token}`}, mode: 'cors'})
+            .then((response)=>{
+                // console.log(response.data.message) 
+                let query = response.data.message
+                setData({...data,loading:false})
+                setData({
+                    datosPersonales:query.datosPersonaleId,
+                    datosMadre:query.datosMadreId,
+                    datosPadre:query.datosPadreId,
+                    datosAlumno:{
+                        expediente:query.expediente,
+                        nombre:query.nombre,
+                        curp:query.curp,
+                        imss:query.imss,
+                    }
+                })
+                setConsultaData(response.data.message)
+                setCalificaciones(response.data.materiasCursadas)
+                setPlanEstudio(response.data.planEstudio)
+            }).catch((e)=>{
+                setFailed(true)
+                console.log(e)
+            })
+        },[])
         return(
             <div>
                 <Header/>
