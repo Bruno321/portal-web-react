@@ -22,7 +22,7 @@ export const ConsultaEscolar = ({props,calificaciones,planEstudio}) => {
                     <Calificaciones props={calificaciones}/>
                 </div>
                 <div style={{marginTop:'20px'}}>
-                    <CalificacionesPendientes/>
+                    {/* <CalificacionesPendientes/> */}
                 </div>
                 <div >
                     <PlanEstudios props={planEstudio}/>

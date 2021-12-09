@@ -6,11 +6,12 @@ import add from '../assets/add.png'
 import Swal from 'sweetalert2';
 
 import { RenderContext } from '../RenderContext';
-
+import {AlumnoContext} from '../AlumnoContext';
 
 export const AlumnosAdmin = () => {
 
     const {changueItem} = useContext(RenderContext)
+    const {changueExp} = useContext(AlumnoContext)
 
     const titles = [
         {data: 'Matricula',isTitle:true},
@@ -35,32 +36,9 @@ export const AlumnosAdmin = () => {
             })
     }, [])
 
-    const handleClick = (nombre,exp) => {
-        Swal.fire({
-            title: '¿Estas seguro?',
-            text: `El alumno ${nombre} sera eliminado`,
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Si, borrar'
-          }).then((e)=>{
-            console.log(exp)
-            axios.patch('http://localhost:3000/bajaAlumno',{exp},{headers:{"Access-Control-Allow-Origin":null,'Authorization': `Bearer ${token}`}, mode: 'cors'})
-            .then((response)=>{
-                Swal.fire(
-                    `${nombre} dado de baja`,
-                    'success'
-                ).then(()=>{
-                    setTimeout(function(){
-                        location = ''
-                      },1000)
-                })
-            }).catch((e)=>{
-                console.log(e)
-            })
-
-          })
+    const handleClick = (expediente) => {
+        changueExp(expediente)
+        changueItem(10)
     }
 
     return (
@@ -88,7 +66,7 @@ export const AlumnosAdmin = () => {
                                 {e.creditosObtenidos}
                                     
                                 </div>
-                                <div style={styles.container4} onClick={()=>changueItem(10)}>
+                                <div style={styles.container4} onClick={()=>handleClick(e.expediente)}>
                                     <img src={add} style={{cursor:'pointer'}} />
                                 </div>
                             </div>
