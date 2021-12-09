@@ -9,10 +9,12 @@ import { RestriccionesPlanEstudio } from './RestriccionesPlanEstudio';
 
 export const ConsultaEscolar = ({props,calificaciones,planEstudio}) => {
 
+    const {planEstudioId,carreraId} = props
+    const planYCarrera = planEstudioId.nombre + ' - ' + carreraId.nombre
     return (
         <div style={styles.container}>
             {/* TODOOO */}
-            <h2>SOF18 - Ingeniero de software</h2>
+            <h2>{planYCarrera}</h2>
             <div style={styles.container2}>
                 <div style={styles.container3}>
                     <Generales props={props}/>

@@ -1,15 +1,36 @@
-import React, {useContext} from 'react';
+import React, {useContext,useEffect,useState} from 'react';
 import add from '../assets/add.png'
 import {RenderContext} from '../RenderContext';
-
+import axios from 'axios'
+import {GrupoContext} from '../GrupoContext'
 
 export const MateriasAdmin = ({props}) => {
 
-    const materias = props
     const {changueItem} = useContext(RenderContext)
+    const {changueGroup,changueMateriaId} = useContext(GrupoContext)
 
+    const token =  window.localStorage.getItem('token')
+    const [materiasImpartidas,setMateriasImpartidas] = useState({
+        materiasList:[]
+    })
 
-    console.log(materias)
+    useEffect(()=>{
+        axios.get('http://localhost:3000/materiasTrabajador',{headers:{"Access-Control-Allow-Origin":null,'Authorization': `Bearer ${token}`}, mode: 'cors'})
+        .then((response)=>{
+            console.log(response.data.message)
+            setMateriasImpartidas({...materiasImpartidas,materiasList:response.data.message})
+        })
+        .catch((e)=>{
+            console.log(e)
+        })
+    },[])
+
+    const handleClick = (grupo,materia) => {
+        changueGroup(grupo)
+        changueMateriaId(materia)
+        changueItem(8)
+    }
+
     return (
         <div style={styles.container}>
             <h2>Materias impartidas</h2>
@@ -26,17 +47,17 @@ export const MateriasAdmin = ({props}) => {
                     </div>
                 </div>
                 {
-                    materias.map((e,i)=>{
+                    materiasImpartidas.materiasList.map((e,i)=>{
                         return (
                             <div key={i} style={styles.container5}>
                                 <div style={styles.container6}>
-                                    {e.materiasPlanEstudiosId.nombre}
+                                    {e.materiasPlanEstudioCveMat.nombre}
                                 </div>
                                 <div style={styles.container6}>
                                     {e.grupo}
                                 </div>
                                 <div style={styles.container6}>
-                                    <img style={styles.img} src={add} onClick={()=>changueItem(7)}/>
+                                    <img style={styles.img} src={add} onClick={()=>handleClick(e.grupo,e.materiasPlanEstudioCveMat.cveMat)}/>
                                 </div>
                             </div>
                         )
