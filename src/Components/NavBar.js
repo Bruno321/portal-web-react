@@ -16,8 +16,9 @@ const styles = {
     container: {
         display: 'flex',
         weight: '100%',
-        height: '8vh',
+        backgroundColor: '#c8d6e5',
+        // height: '8vh',
         justifyContent: 'space-evenly',
-        padding:'20px',
+        // padding:'20px',
     }
 }

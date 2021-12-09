@@ -13,10 +13,16 @@ export const Footer = () => {
 
 const styles = {
     container: {
+        position: 'absolute',
+        bottom: '0px',
+        left: '0px',
+        right: '0px',
         display: 'flex',
         weight: '100%',
-        height: '3vh',
         justifyContent: 'space-evenly',
-        padding:'20px',
+        // padding:'5px',
+        backgroundColor: '#c8d6e5',
+        borderRadius: '15px',
+        border: '1px solid rgba(0, 0, 0, 0.05)',
     }
 }
