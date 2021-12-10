@@ -50,6 +50,7 @@ const Provider = ({children})=> {
                 },{headers:{"Access-Control-Allow-Origin":null}, mode: 'cors',}).then((response)=>{
                     setIsAuth(true)
                     // estudiante se activa con el token
+
                     if(isStudent){
                         window.localStorage.setItem('isStudent',true)
                     }
@@ -57,8 +58,20 @@ const Provider = ({children})=> {
                     // Devuelve un token y lo guardamos
                     window.localStorage.setItem('token',response.data.message)
                 }).catch((e)=>{
-                    setFailed(true)
-                    console.log(e)
+                    axios.post('http://localhost:3000/loginTrabajador',{
+                        numTrabajador:usuario,
+                        nip:nip
+                    },{headers:{"Access-Control-Allow-Origin":null}, mode: 'cors',}).then((response)=>{
+                        window.localStorage.setItem('isProfesor',true)
+                        setIsProfesor(true)
+                        setIsStudent(false)
+                        setIsAuth(true)
+                        window.localStorage.setItem('token',response.data.message)
+                    }).catch((e)=>{
+                        setFailed(true)
+                        console.log(e)
+                    })
+                        
                 })
             }
 

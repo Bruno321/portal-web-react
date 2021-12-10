@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, {useState,useEffect} from 'react';
 
 import { DatosEditables } from './DatosEditables';
@@ -21,16 +22,25 @@ export const InformacionPersonal = ({props}) => {
 
     useEffect(() => {
         setForm(datosPersonales)
-        setPadreForm(datosMadre)
-        setMadreForm(datosPadre)
+        setPadreForm(datosPadre)
+        setMadreForm(datosMadre)
     }, [props])
 
 
+    const token = window.localStorage.getItem('token')
 
     const handleClick = () => {
-        
+        // console.log(form)
+        // console.log(datosMadre)
+        console.log(padreForm)
+        axios.post('http://localhost:3000/actualizarAlumno',{data:{form,madreForm,padreForm}},{headers:{"Access-Control-Allow-Origin":null,'Authorization': `Bearer ${token}`}, mode: 'cors'})
+        .then((response)=>{
+            console.log(response.data.message)
+        }).catch((e)=>console.log(e))
+
     }
 
+    console.log(padreForm)
     // TODO API request
     return (
         <div style={styles.container}>
@@ -103,8 +113,7 @@ export const InformacionPersonal = ({props}) => {
                         <input defaultValue={madreForm.nombre} onChange={(e)=>setMadreForm({...madreForm,nombre:e.target.value})}/>
                     </div>
                     <div>
-                        Fecha nacimiento
-                        <input defaultValue={madreForm.fechaNacimiento} onChange={(e)=>setMadreForm({...madreForm,fechaNacimiento:e.target.value})}/>
+                        Fecha nacimiento: {madreForm.fechaNacimiento}
                     </div>
                     <div>
                         Telefono
@@ -120,19 +129,18 @@ export const InformacionPersonal = ({props}) => {
                     </div>
                     <div>
                         Apellido Materno
-                        <input defaultValue={padreForm.apellidoPaterno} onChange={(e)=>setPadreForm({...padreForm,apellidoPaterno:e.target.value})}/>
+                        <input defaultValue={padreForm.apellidoMaterno} onChange={(e)=>setPadreForm({...padreForm,apellidoMaterno:e.target.value})}/>
                     </div>
                     <div>
                         Nombres
-                        <input defaultValue={padreForm.apellidoPaterno} onChange={(e)=>setPadreForm({...padreForm,apellidoPaterno:e.target.value})}/>
+                        <input defaultValue={padreForm.nombre} onChange={(e)=>setPadreForm({...padreForm,nombre:e.target.value})}/>
                     </div>
                     <div>
-                        Fecha nacimiento
-                        <input defaultValue={padreForm.apellidoPaterno} onChange={(e)=>setPadreForm({...padreForm,apellidoPaterno:e.target.value})}/>
+                        Fecha nacimiento:  {padreForm.fechaNacimiento}
                     </div>
                     <div>
                         Telefono
-                        <input defaultValue={padreForm.apellidoPaterno} onChange={(e)=>setPadreForm({...padreForm,apellidoPaterno:e.target.value})}/>
+                        <input defaultValue={padreForm.telefono} onChange={(e)=>setPadreForm({...padreForm,telefono:e.target.value})}/>
                     </div>
                 </div>
 
