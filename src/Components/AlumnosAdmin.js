@@ -27,7 +27,7 @@ export const AlumnosAdmin = () => {
     const token =  window.localStorage.getItem('token')
   
     useEffect(() => {
-        axios.get('http://localhost:3000/getAlumnos',{headers:{"Access-Control-Allow-Origin":null,'Authorization': `Bearer ${token}`}, mode: 'cors'})
+        axios.get('https://portal-uaq.herokuapp.com/getAlumnos',{headers:{"Access-Control-Allow-Origin":null,'Authorization': `Bearer ${token}`}, mode: 'cors'})
             .then((response)=>{
                 setData({...data,loading:false})
                 setAlumnos({datos:response.data.message})

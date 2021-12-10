@@ -28,7 +28,7 @@ const Provider = ({children})=> {
             // console.log(usuario,ip)
             if(isAdmin){
                 console.log("ENTRE A ADMIN")
-                axios.post('http://localhost:3000/loginTrabajador',{
+                axios.post('https://portal-uaq.herokuapp.com/loginTrabajador',{
                     numTrabajador:usuario,
                     nip:nip
                 },{headers:{"Access-Control-Allow-Origin":null}, mode: 'cors',}).then((response)=>{
@@ -42,7 +42,7 @@ const Provider = ({children})=> {
             }else{
                 console.log("ENTRE A ESTUDIANTE")
 
-                axios.post('http://localhost:3000/loginAlumno',{
+                axios.post('https://portal-uaq.herokuapp.com/loginAlumno',{
                     exp:usuario,
                     nip:nip
                 },{headers:{"Access-Control-Allow-Origin":null}, mode: 'cors',}).then((response)=>{
@@ -51,7 +51,7 @@ const Provider = ({children})=> {
                     window.localStorage.setItem('token',response.data.message)
                 }).catch((e)=>{
                     console.log("ENTRE A TRBAJADOR")
-                    axios.post('http://localhost:3000/loginTrabajador',{
+                    axios.post('https://portal-uaq.herokuapp.com/loginTrabajador',{
                         numTrabajador:usuario,
                         nip:nip
                     },{headers:{"Access-Control-Allow-Origin":null}, mode: 'cors',}).then((response)=>{

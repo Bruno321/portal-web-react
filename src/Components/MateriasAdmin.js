@@ -15,7 +15,7 @@ export const MateriasAdmin = ({props}) => {
     })
 
     useEffect(()=>{
-        axios.get('http://localhost:3000/materiasTrabajador',{headers:{"Access-Control-Allow-Origin":null,'Authorization': `Bearer ${token}`}, mode: 'cors'})
+        axios.get('https://portal-uaq.herokuapp.com/materiasTrabajador',{headers:{"Access-Control-Allow-Origin":null,'Authorization': `Bearer ${token}`}, mode: 'cors'})
         .then((response)=>{
             console.log(response.data.message)
             setMateriasImpartidas({...materiasImpartidas,materiasList:response.data.message})

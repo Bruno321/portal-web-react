@@ -32,7 +32,7 @@ export const Register = () => {
             'question'
           ).then((e)=>{
               if(e.isConfirmed){
-                axios.post('http://localhost:3000/crearTrabajador',{data:form,checked},{headers:{"Access-Control-Allow-Origin":null,'Authorization': `Bearer ${token}`}, mode: 'cors'})
+                axios.post('https://portal-uaq.herokuapp.com/crearTrabajador',{data:form,checked},{headers:{"Access-Control-Allow-Origin":null,'Authorization': `Bearer ${token}`}, mode: 'cors'})
                 .then((response)=>{
                     if(response.data.error){
                         setError(true)

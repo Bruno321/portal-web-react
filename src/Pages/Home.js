@@ -39,7 +39,7 @@ export const Home = () => {
         })
 
         useEffect(() => {
-            axios.get('http://localhost:3000/datosTrabajador',{headers:{"Access-Control-Allow-Origin":null,'Authorization': `Bearer ${token}`}, mode: 'cors'})
+            axios.get('https://portal-uaq.herokuapp.com/datosTrabajador',{headers:{"Access-Control-Allow-Origin":null,'Authorization': `Bearer ${token}`}, mode: 'cors'})
             .then((response)=>{
                 setData({...data,loading:false})
                 setData({
@@ -85,7 +85,7 @@ export const Home = () => {
         })
 
         useEffect(() => {
-            axios.get('http://localhost:3000/datosTrabajador',{headers:{"Access-Control-Allow-Origin":null,'Authorization': `Bearer ${token}`}, mode: 'cors'})
+            axios.get('https://portal-uaq.herokuapp.com/datosTrabajador',{headers:{"Access-Control-Allow-Origin":null,'Authorization': `Bearer ${token}`}, mode: 'cors'})
             .then((response)=>{
                 setData({...data,loading:false})
                 setData({
@@ -131,8 +131,8 @@ export const Home = () => {
         const [consultaData,setConsultaData] = useState({})
         
         useEffect(()=>{
-            // axios.post('http://localhost:3000/alumnoInfo',{id:290253},{headers:{"Access-Control-Allow-Origin":null}, mode: 'cors'})
-            axios.get('http://localhost:3000/alumnoInfo',{headers:{"Access-Control-Allow-Origin":null,'Authorization': `Bearer ${token}`}, mode: 'cors'})
+            // axios.post('https://portal-uaq.herokuapp.com/alumnoInfo',{id:290253},{headers:{"Access-Control-Allow-Origin":null}, mode: 'cors'})
+            axios.get('https://portal-uaq.herokuapp.com/alumnoInfo',{headers:{"Access-Control-Allow-Origin":null,'Authorization': `Bearer ${token}`}, mode: 'cors'})
             .then((response)=>{
                 // console.log(response.data.message) 
                 let query = response.data.message

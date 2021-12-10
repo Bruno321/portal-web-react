@@ -28,7 +28,7 @@ export const MateriaInfo  = () => {
 
 
     useEffect(()=>{
-        axios.post('http://localhost:3000/grupoMateria',{data:{grupo,materiasPlanEstudiosId}},{headers:{"Access-Control-Allow-Origin":null,'Authorization': `Bearer ${token}`}, mode: 'cors'})
+        axios.post('https://portal-uaq.herokuapp.com/grupoMateria',{data:{grupo,materiasPlanEstudiosId}},{headers:{"Access-Control-Allow-Origin":null,'Authorization': `Bearer ${token}`}, mode: 'cors'})
         .then((response)=>{
             // console.log(response.data.message)
             setAlumnos({...alumnos,alumnosList:response.data.message})
@@ -43,7 +43,7 @@ export const MateriaInfo  = () => {
             alumnoExpediente: e.target.value,
             materiasPlanEstudiosId: materiasPlanEstudiosId
         }
-        axios.post('http://localhost:3000/asignarCalificacion',{data:data},{headers:{"Access-Control-Allow-Origin":null,'Authorization': `Bearer ${token}`}, mode: 'cors'})
+        axios.post('https://portal-uaq.herokuapp.com/asignarCalificacion',{data:data},{headers:{"Access-Control-Allow-Origin":null,'Authorization': `Bearer ${token}`}, mode: 'cors'})
         .then((response)=>{
             console.log(response)
         }).catch((e)=>console.log(e))

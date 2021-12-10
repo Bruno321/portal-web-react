@@ -26,16 +26,16 @@ export const OpcionesAlumno = () => {
 
     useEffect(()=>{
         
-        axios.get('http://localhost:3000/planEstudios',{headers:{"Access-Control-Allow-Origin":null,'Authorization': `Bearer ${token}`}, mode: 'cors'})
+        axios.get('https://portal-uaq.herokuapp.com/planEstudios',{headers:{"Access-Control-Allow-Origin":null,'Authorization': `Bearer ${token}`}, mode: 'cors'})
         .then((r)=>{
             // console.log(r)
             setPlanEstudioContainer({...planEstudioContainer,planEstudios:r.data.message})
         }).catch((e)=>console.log(e))
-        axios.get('http://localhost:3000/carreras',{headers:{"Access-Control-Allow-Origin":null,'Authorization': `Bearer ${token}`}, mode: 'cors'})
+        axios.get('https://portal-uaq.herokuapp.com/carreras',{headers:{"Access-Control-Allow-Origin":null,'Authorization': `Bearer ${token}`}, mode: 'cors'})
         .then((r)=>{
             setCarrerasContainer({...carrerasContainer,carreras:r.data.message})
         }).catch((e)=>console.log(e))
-        axios.get('http://localhost:3000/instituciones',{headers:{"Access-Control-Allow-Origin":null,'Authorization': `Bearer ${token}`}, mode: 'cors'})
+        axios.get('https://portal-uaq.herokuapp.com/instituciones',{headers:{"Access-Control-Allow-Origin":null,'Authorization': `Bearer ${token}`}, mode: 'cors'})
         .then((r)=>{
             setInstituciones({...institucionesContainer,instituciones:r.data.message})
         }).catch((e)=>console.log(e))
@@ -63,7 +63,7 @@ export const OpcionesAlumno = () => {
             'question'
           ).then((e)=>{
               if(e.isConfirmed){
-                axios.post('http://localhost:3000/asignarInformacionCarrera',{data:data},{headers:{"Access-Control-Allow-Origin":null,'Authorization': `Bearer ${token}`}, mode: 'cors'})
+                axios.post('https://portal-uaq.herokuapp.com/asignarInformacionCarrera',{data:data},{headers:{"Access-Control-Allow-Origin":null,'Authorization': `Bearer ${token}`}, mode: 'cors'})
                 .then((response)=>{
                     if(response.data.error){
                         setError(true)
@@ -94,7 +94,7 @@ export const OpcionesAlumno = () => {
             cancelButtonColor: '#d33',
             confirmButtonText: 'Si, borrar'
           }).then((e)=>{
-            axios.patch('http://localhost:3000/bajaAlumno',{expediente},{headers:{"Access-Control-Allow-Origin":null,'Authorization': `Bearer ${token}`}, mode: 'cors'})
+            axios.patch('https://portal-uaq.herokuapp.com/bajaAlumno',{expediente},{headers:{"Access-Control-Allow-Origin":null,'Authorization': `Bearer ${token}`}, mode: 'cors'})
             .then((response)=>{
                 Swal.fire(
                     `Alumno dado de baja`,
