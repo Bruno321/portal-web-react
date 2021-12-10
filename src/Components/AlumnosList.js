@@ -15,7 +15,7 @@ export const AlumnosList = ({props}) => {
             {
                 alumnos.map((e,i)=>{
                     <div>
-                        KAKITA
+                        
                     </div>
                 })
             }

@@ -165,11 +165,11 @@ export const Home = () => {
                         <div style={styles.container}>
                             {itemToRender==1 && <InformacionPersonal props={data}/>}
                             {itemToRender==2 && <ConsultaEscolar props={consultaData} calificaciones={calificaciones} planEstudio={planEstudio}/>}
-                            {itemToRender==3 && <div>No disponible por el momento</div>}
-                            {itemToRender==4 && <div>No disponible por el momento</div>}
-                            {itemToRender==5 && <div>No disponible por el momento</div>}
-                            {itemToRender==6 && <div>No disponible por el momento</div>}
-                            {itemToRender==7 && <div>No disponible por el momento</div>}
+                            {itemToRender==3 && <div style={styles.NoDisponible}>No disponible por el momento</div>}
+                            {itemToRender==4 && <div style={styles.NoDisponible}>No disponible por el momento</div>}
+                            {itemToRender==5 && <div style={styles.NoDisponible}>No disponible por el momento</div>}
+                            {itemToRender==6 && <div style={styles.NoDisponible}>No disponible por el momento</div>}
+                            {itemToRender==7 && <div style={styles.NoDisponible}>No disponible por el momento</div>}
                             
                         </div> :  
                         <div style={{textAlign: 'center', marginTop: '15%', fontSize: '30px',}}>Seccion no disponible por el momento, intente mas tarde.</div>
@@ -186,5 +186,10 @@ const styles = {
         display: 'flex',
         flex: '1',
         justifyContent: 'center',
+    },
+    NoDisponible:{
+        // backgroundColor: 'red',
+        marginTop: '15%',
+        fontSize: '40px',
     }
 }

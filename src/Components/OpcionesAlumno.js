@@ -121,7 +121,7 @@ export const OpcionesAlumno = () => {
             <div style={styles.container}>
                 <label style={styles.labels}>Asignar informacion de carrera</label>
                 <div style={{display: 'flex',justifyContent:'center',alignItems:'center',flexDirection: 'column',}}>
-                    <div>
+                    <div style={styles.divMarginBot}>
                         <h3 style={styles.h3}>Plan de estudio</h3>
                         <select style={styles.select} name="plan" id="0" onChange={(e)=>setPlanSelected(e.target.value)} value={planSelected}>
                             {
@@ -134,7 +134,7 @@ export const OpcionesAlumno = () => {
                         </select> 
                     </div>
 
-                    <div>
+                    <div style={styles.divMarginBot}>
                         <h3 style={styles.h3}>Carrera</h3>
                         <select style={styles.select} name="carrera" id="1" onChange={(e)=>setCarreraSelected(e.target.value)} value={carreraSelected}>
                             {
@@ -147,7 +147,7 @@ export const OpcionesAlumno = () => {
                         </select> 
                     </div>
 
-                    <div>
+                    <div style={styles.divMarginBot}>
                         <h3 style={styles.h3}>Institucion</h3>
                         <select style={styles.select} name="institucion" id="2" onChange={(e)=>setInstitucionSelected(e.target.value)} value={institucionSelected}>
                             {
@@ -205,5 +205,8 @@ const styles = {
         textAlign:'center',
         cursor:'pointer',
         backgroundColor: '#20B0A0'
+    },
+    divMarginBot:{
+        marginBottom:'2vh',
     }
 }

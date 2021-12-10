@@ -17,26 +17,26 @@ export const MateriasActuales = ({props}) => {
 
     return (
         <div style={styles.container}>
-            <h3>Materias actuales</h3>
+            <label style={{fontFamily: 'arial',fontWeight: 'bold',fontSize: '20px',marginTop: '2vh'}}>Materias actuales</label>
             <div style={styles.containerMaterias}>
                 <MateriasActualesContainer props={titles}/>
                 {
                     materias.map((materia,i)=>{
                         return (
                             <div style={styles.container3} key={i}>
-                                <div style={styles.materiaData}>
+                                <div style={i%2==0?styles.container4_1:styles.container4_2}>
                                     {materia.materiasPlanEstudiosId.nombre}
                                 </div>
-                                <div style={styles.materiaData}>
+                                <div style={i%2==0?styles.container4_1:styles.container4_2}>
                                     {materia.grupo}
                                 </div>
-                                <div style={styles.materiaData}>
+                                <div style={i%2==0?styles.container4_1:styles.container4_2}>
                                     Falta periodo
                                 </div>
-                                <div style={styles.materiaData}>
+                                <div style={i%2==0?styles.container4_1:styles.container4_2}>
                                     {materia.profesorId}
                                 </div>
-                                <div style={styles.materiaData}>
+                                <div style={i%2==0?styles.container4_1:styles.container4_2}>
                                     {materia.materiasPlanEstudiosId.creditos}
                                 </div>
                             </div>
@@ -51,7 +51,8 @@ export const MateriasActuales = ({props}) => {
 
 const styles = {
     container: {
-        width:'50%',
+        width:'100%',
+        marginTop: '20px',
     },
     container2:{
         worWrap: 'break-word',
@@ -62,15 +63,35 @@ const styles = {
     container3: {
         display: 'flex',
         flexDirection: 'row',
-        height: '15%',
-        marginTop:'20px'
+        // height: '15%',
+        height:'5vh',
+        // marginTop:'20px'
     },
     containerMaterias:{
         height: '100%',
-        overflow:'scroll',
+        // overflow:'scroll',
     },
     materiaData: {
         width:'20%',
         wordWrap: 'break-word',
-    }
+        backgroundColor: 'red',
+    },
+    container4_1:{
+        width:'20%',
+        textAlign:'center',
+        height:'5vh',
+        display:'flex',
+        alignItems:'center',
+        justifyContent:'center',
+        backgroundColor: '#dfe6e9',
+    },
+    container4_2:{
+        width:'20%',
+        textAlign:'center',
+        height:'5vh',
+        display:'flex',
+        alignItems:'center',
+        justifyContent:'center',
+        backgroundColor: '#c8d6e5',
+    },
 }

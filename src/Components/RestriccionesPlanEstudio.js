@@ -4,7 +4,7 @@ export const RestriccionesPlanEstudio = ({props}) => {
     const planEstudio = props
     return (
         <div>
-            Restricciones del plan de estudios
+            <label style={{fontFamily: 'arial',fontWeight: 'bold',fontSize: '20px',marginTop: '2vh'}}>Restricciones del plan de estudios</label>
             <div style={styles.container}>
                 <div style={styles.container2}>
                     <div style={styles.flex}>

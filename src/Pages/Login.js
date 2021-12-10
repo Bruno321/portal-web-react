@@ -55,7 +55,7 @@ export const Login = () => {
                             </div>
 
                             <div style={styles.container6_2}>
-                                <div>Soy administrativo<input type={"checkbox"}  onChange={()=>activateAdmin(!isAdmin)} defaultChecked={isAdmin} style={{marginRight:'20px',marginLeft:'20px'}}/></div>
+                                <div>Soy Administrativo y/o Maestro<input type={"checkbox"}  onChange={()=>activateAdmin(!isAdmin)} defaultChecked={isAdmin} style={{marginRight:'20px',marginLeft:'20px'}}/></div>
                                 <div><a style={{textDecoration:'underline',color:'#5564eb', cursor:'pointer',}}>Olvidé mi NIP</a></div>
                             </div>
 

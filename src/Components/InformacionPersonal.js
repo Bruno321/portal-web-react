@@ -67,108 +67,114 @@ export const InformacionPersonal = ({props}) => {
     return (
         <div style={styles.container}>
             <div style={styles.datosContainer}>
-                <div>
-                    <div>
-                        Calle Y numero
-                        <input  value={form.calleYnumero} onChange={(e)=>setForm({...form,calleYnumero:e.target.value})}/>
-                    </div>
-                    <div>
-                        Colonia
-                        <input defaultValue={form.colonia} onChange={(e)=>setForm({...form,colonia:e.target.value})}/>
-                    </div>
-                    <div>
-                        Codigo postal
-                        <input defaultValue={form.codigoPostal} onChange={(e)=>setForm({...form,codigoPostal:e.target.value})}/>
-                    </div>
-                    <div>
-                        Estado
-                        <input defaultValue={form.estado} onChange={(e)=>setForm({...form,estado:e.target.value})}/>
-                    </div>
-                    <div>
-                        Municipio
-                        <input defaultValue={form.municipio} onChange={(e)=>setForm({...form,municipio:e.target.value})}/>
-                    </div>
-                    <div>
-                        Telefono fijo
-                        <input defaultValue={form.telefonoFijo} onChange={(e)=>setForm({...form,telefonoFijo:e.target.value})}/>
-                    </div>
-                    <div>
-                        Correo electronico
-                        <input defaultValue={form.email} onChange={(e)=>setForm({...form,email:e.target.value})}/>
-                    </div>
-                    <div>
-                        Telefono celular
-                        <input defaultValue={form.telefonoCelular} onChange={(e)=>setForm({...form,telefonoCelular:e.target.value})}/>
-                    </div>
-                </div>
                 <div style={styles.container2}>
-                    <div>
-                        Expediente: {datosAlumno.expediente}
+                    <label style={styles.labelTitulo}>Datos personales</label>
+                    <div style={styles.divs}>
+                        <label style={styles.label}>Expediente</label>
+                        <input style={styles.input} value={datosAlumno.expediente} disabled='true'/>
                     </div>
-                    <div>
-                        Nombre: {datosPersonales.nombre}
+                    <div style={styles.divs}>
+                        <label style={styles.label}>Nombre</label>
+                        <input style={styles.input} value={datosPersonales.nombre} disabled='true'/>
                     </div>
-                    <div>
-                        Curp: {datosAlumno.curp}
+                    <div style={styles.divs}>
+                        <label style={styles.label}>Curp</label>
+                        <input style={styles.input} value={datosAlumno.curp} disabled='true'/>
                     </div>
-                    <div>
-                        IMSS: {datosAlumno.imss}
+                    <div style={styles.divs}>
+                        <label style={styles.label}>IMSS</label>
+                        <input style={styles.input} value={datosAlumno.imss} disabled='true'/>
                     </div>
-                </div>
-                <DatosNoEditables fecha={datosPersonales.fechaNacimiento} pais={datosPersonales.paisNacimiento} estado={datosPersonales.estadoNacimiento} municipio={datosPersonales.municipioNacimiento}/>
+                    <label style={styles.labelTitulo}>Contacto</label>
+                    <div style={styles.divs}>
+                        <label style={styles.label}>Calle Y numero</label>
+                        <input style={styles.input}  value={form.calleYnumero} onChange={(e)=>setForm({...form,calleYnumero:e.target.value})}/>
+                    </div>
+                    <div style={styles.divs}>
+                        <label style={styles.label}>Colonia</label>
+                        <input style={styles.input} defaultValue={form.colonia} onChange={(e)=>setForm({...form,colonia:e.target.value})}/>
+                    </div>
+                    <div style={styles.divs}>
+                        <label style={styles.label}>Codigo postal</label>
+                        <input style={styles.input} defaultValue={form.codigoPostal} onChange={(e)=>setForm({...form,codigoPostal:e.target.value})}/>
+                    </div>
+                    <div style={styles.divs}>
+                        <label style={styles.label}>Estado</label>
+                        <input style={styles.input} defaultValue={form.estado} onChange={(e)=>setForm({...form,estado:e.target.value})}/>
+                    </div>
+                    <div style={styles.divs}>
+                        <label style={styles.label}>Municipio</label>
+                        <input style={styles.input} defaultValue={form.municipio} onChange={(e)=>setForm({...form,municipio:e.target.value})}/>
+                    </div>
+                    <div style={styles.divs}>
+                        <label style={styles.label}>Telefono fijo</label>
+                        <input style={styles.input} defaultValue={form.telefonoFijo} onChange={(e)=>setForm({...form,telefonoFijo:e.target.value})}/>
+                    </div>
+                    <div style={styles.divs}>
+                        <label style={styles.label}>Correo electronico</label>
+                        <input style={styles.input} defaultValue={form.email} onChange={(e)=>setForm({...form,email:e.target.value})}/>
+                    </div>
+                    <div style={styles.divs}>
+                        <label style={styles.label}>Telefono celular</label>
+                        <input style={styles.input} defaultValue={form.telefonoCelular} onChange={(e)=>setForm({...form,telefonoCelular:e.target.value})}/>
+                    </div>
+                    <label style={styles.labelTitulo}>Datos de Nacimiento</label>
+                    <DatosNoEditables fecha={datosPersonales.fechaNacimiento} pais={datosPersonales.paisNacimiento} estado={datosPersonales.estadoNacimiento} municipio={datosPersonales.municipioNacimiento}/>
+                </div>    
             </div>
-            
             <div style={styles.datosPadresContainer}>
-
                 <div>
-                    Madre
-                    <div>
-                        Apellido Paterno
-                        <input defaultValue={madreForm.apellidoPaterno} onChange={(e)=>setMadreForm({...madreForm,apellidoPaterno:e.target.value})}/>
+                    <label style={styles.labelTitulo}>Datos de la Madre</label>
+                    <div style={styles.divs}>
+                        <label style={styles.label}>Apellido Paterno</label>
+                        <input style={styles.input} defaultValue={madreForm.apellidoPaterno} onChange={(e)=>setMadreForm({...madreForm,apellidoPaterno:e.target.value})}/>
                     </div>
-                    <div>
-                        Apellido Materno
-                        <input  defaultValue={madreForm.apellidoMaterno} onChange={(e)=>setMadreForm({...madreForm,apellidoMaterno:e.target.value})}/>
+                    <div style={styles.divs}>
+                        <label style={styles.label}>Apellido Materno</label>
+                        <input style={styles.input}  defaultValue={madreForm.apellidoMaterno} onChange={(e)=>setMadreForm({...madreForm,apellidoMaterno:e.target.value})}/>
                     </div>
-                    <div>
-                        Nombres
-                        <input defaultValue={madreForm.nombre} onChange={(e)=>setMadreForm({...madreForm,nombre:e.target.value})}/>
+                    <div style={styles.divs}>
+                        <label style={styles.label}>Nombres</label>
+                        <input style={styles.input} defaultValue={madreForm.nombre} onChange={(e)=>setMadreForm({...madreForm,nombre:e.target.value})}/>
                     </div>
-                    <div>
-                        Fecha nacimiento: {madreForm.fechaNacimiento}
+                    <div style={styles.divs}>
+                        <label style={styles.label}>Fecha nacimiento</label>
+                        <input style={styles.input} value={madreForm.fechaNacimiento} disabled='true'/>
                     </div>
-                    <div>
-                        Telefono
-                        <input defaultValue={madreForm.telefono} onChange={(e)=>setMadreForm({...madreForm,telefono:e.target.value})}/>
+                    <div style={styles.divs}>
+                        <label style={styles.label}>Telefono</label>
+                        <input style={styles.input} defaultValue={madreForm.telefono} onChange={(e)=>setMadreForm({...madreForm,telefono:e.target.value})}/>
                     </div>
                 </div>
-
                 <div>
-                    Padre
-                    <div>
-                        Apellido Paterno
-                        <input defaultValue={padreForm.apellidoPaterno} onChange={(e)=>setPadreForm({...padreForm,apellidoPaterno:e.target.value})}/>
+                    <label style={styles.labelTitulo}>Datos del padre</label>
+                    <div style={styles.divs}>
+                        <label style={styles.label}>Apellido Paterno</label>
+                        <input style={styles.input} defaultValue={padreForm.apellidoPaterno} onChange={(e)=>setPadreForm({...padreForm,apellidoPaterno:e.target.value})}/>
                     </div>
-                    <div>
-                        Apellido Materno
-                        <input defaultValue={padreForm.apellidoMaterno} onChange={(e)=>setPadreForm({...padreForm,apellidoMaterno:e.target.value})}/>
+                    <div style={styles.divs}>
+                        <label style={styles.label}>Apellido Materno</label>
+                        <input style={styles.input} defaultValue={padreForm.apellidoMaterno} onChange={(e)=>setPadreForm({...padreForm,apellidoMaterno:e.target.value})}/>
                     </div>
-                    <div>
-                        Nombres
-                        <input defaultValue={padreForm.nombre} onChange={(e)=>setPadreForm({...padreForm,nombre:e.target.value})}/>
+                    <div style={styles.divs}>
+                        <label style={styles.label}>Nombres</label>
+                        <input style={styles.input} defaultValue={padreForm.nombre} onChange={(e)=>setPadreForm({...padreForm,nombre:e.target.value})}/>
                     </div>
-                    <div>
-                        Fecha nacimiento:  {padreForm.fechaNacimiento}
+                    <div style={styles.divs}>
+                        <label style={styles.label}>Fecha nacimiento</label>
+                        <input style={styles.input} value={padreForm.fechaNacimiento} disabled='true'/>
                     </div>
-                    <div>
-                        Telefono
-                        <input defaultValue={padreForm.telefono} onChange={(e)=>setPadreForm({...padreForm,telefono:e.target.value})}/>
+                    <div style={styles.divs}>
+                        <label style={styles.label}>Telefono</label>
+                        <input style={styles.input} defaultValue={padreForm.telefono} onChange={(e)=>setPadreForm({...padreForm,telefono:e.target.value})}/>
                     </div>
                 </div>
 
             </div>
-            <div style={styles.button} onClick={handleClick}>
-                <h3>Enviar</h3>
+            <div style={{ justifyContent: 'center', display:'flex'}}>
+                <div style={styles.button} onClick={handleClick}>
+                    <h3>Enviar</h3>
+                </div>
             </div>
         </div>
     )
@@ -185,10 +191,11 @@ const styles = {
         flexDirection:'column',
         alignItems:'center',
         marginTop:'10px',
+
     },
     datosContainer: {
         display:'flex',
-        justifyContent: 'space-evenly',
+        flexDirection: 'column'
     },
     datosPadresContainer: {
         display: 'flex',
@@ -196,8 +203,48 @@ const styles = {
 
     },
     button: {
-        marginTop:'5vh',
+        display:'flex',
+        flexDirection:'column',
+        alignItems:'center',        
+        justifyContent:'center',
+        width: '25vh',
+        height: '5vh',
+        marginTop: '1vh',
+        marginBottom: '15vh',
+        borderRadius: '25px',
+        color: 'white',
+        fontFamily: 'arial',
         textAlign:'center',
-        cursor:'pointer'
+        cursor:'pointer',
+        backgroundColor: '#20B0A0'
+    },
+    label:{
+        // color: 'red',
+        width: '100%',
+        fontFamily:'Arial',
+        fontSize:'18px',
+        textAlign: 'center',
+        display: 'flex',
+        justifyContent:'center',
+        alignItems:'center',
+    },
+    input:{
+        // backgroundColor: 'blue',
+        width: '100%',
+        fontFamily:'Arial',
+        fontSize:'18px',
+        padding: '10px',
+    },
+    divs:{
+        // backgroundColor: 'pink',
+        width: '100%',
+        display:'flex',
+        marginTop:'10px',
+    },
+    labelTitulo:{
+        fontFamily: 'arial',
+        fontWeight: 'bold',
+        fontSize: '20px',
+        marginTop: '2vh'
     }
 }

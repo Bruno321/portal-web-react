@@ -4,28 +4,25 @@ import { InputName } from './InputName';
 export const DatosNoEditables = ({fecha,pais,estado,municipio}) => {
     return (
         <div style={styles.container}>
-            <div>
-                <h3>Datos de nacimiento</h3>
+
+            <div style={styles.a}>
+                <label style={styles.label}>Fecha de nacimiento</label>
+                <input style={styles.input} value={fecha} disabled='true'/>
             </div>
 
             <div style={styles.a}>
-                <h3>Fecha de nacimiento</h3>
-                <p>{fecha}</p>
+                <label style={styles.label}>Pais de nacimiento</label>
+                <input style={styles.input} value={pais} disabled='true'/>
             </div>
 
             <div style={styles.a}>
-                <h3>Pais de nacimiento</h3>
-                <p>{pais}</p>
+                <label style={styles.label}>Estado de nacimiento</label>
+                <input style={styles.input} value={estado} disabled='true'/>
             </div>
 
             <div style={styles.a}>
-                <h3>Estado de nacimiento</h3>
-                <p>{estado}</p>
-            </div>
-
-            <div style={styles.a}>
-                <h3>Municipio de nacimiento</h3>
-                <p>{municipio}</p>
+                <label style={styles.label}>Municipio de nacimiento</label>
+                <input style={styles.input} value={municipio} disabled='true'/>
             </div>
 
         </div>
@@ -38,9 +35,28 @@ const styles = {
         flexDirection: 'column',
         textAlign: 'center', 
         fontFamily:'Arial',
+        width: '100%',
     },
     a: {
+        width: '100%',
+        display:'flex',
+        marginTop:'10px',
+    },
+    label:{
+        // color: 'red',
+        width: '100%',
+        fontFamily:'Arial',
+        fontSize:'18px',
         textAlign: 'center',
-        marginTop:'10px'
-    }
+        display: 'flex',
+        justifyContent:'center',
+        alignItems:'center',
+    },
+    input:{
+        // backgroundColor: 'blue',
+        width: '100%',
+        fontFamily:'Arial',
+        fontSize:'18px',
+        padding: '10px',
+    },
 }

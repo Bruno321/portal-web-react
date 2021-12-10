@@ -13,7 +13,7 @@ export const Footer = () => {
 
 const styles = {
     container: {
-        position: 'absolute',
+        position: 'fixed',
         bottom: '0px',
         left: '0px',
         right: '0px',

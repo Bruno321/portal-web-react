@@ -26,7 +26,7 @@ export const Generales = ({props}) => {
 
     return (
         <div style={styles.container}>
-            <h3>Datos generales</h3>
+            <label style={{fontFamily: 'arial',fontWeight: 'bold',fontSize: '20px',marginTop: '2vh'}}>Datos generales</label>
             <div style={styles.container2}>
                 <GeneralDetail tipo={'Escuela'} dato={institucionId.nombre}/>
                 <GeneralDetail tipo={'Carrera'} dato={planYCarrera}/>
@@ -52,13 +52,13 @@ export const Generales = ({props}) => {
 
 const styles = {
     container: {
-        width:'50%'
+        width:'50%',
+        marginTop:'20px'
     },
     container2: {
         display: 'flex',
         justifyContent: 'space-evenly', 
         flexDirection: 'column',
-        marginTop:'25px'
     }
     
 }

@@ -14,22 +14,21 @@ export const ConsultaEscolar = ({props,calificaciones,planEstudio}) => {
     return (
         <div style={styles.container}>
             {/* TODOOO */}
-            <h2>{planYCarrera}</h2>
+            <label style={{fontFamily: 'arial', fontSize:'30px'}}>{planYCarrera}</label>
             <div style={styles.container2}>
-                <div style={styles.container3}>
+                <div style={styles.containerGeneral}>
                     <Generales props={props}/>
+                </div>
+                <div style={styles.containerGeneral}>
                     <MateriasActuales props={props.materiasEnCursos}/>
                 </div>
-                <div >
+                <div style={styles.containerGeneral}>
                     <Calificaciones props={calificaciones}/>
                 </div>
-                <div style={{marginTop:'20px'}}>
-                    {/* <CalificacionesPendientes/> */}
-                </div>
-                <div >
+                <div style={styles.containerGeneral}>
                     <PlanEstudios props={planEstudio}/>
                 </div>
-                <div >
+                <div style={styles.containerGeneral}>
                     <RestriccionesPlanEstudio props={props.planEstudioId}/>
                 </div>
             </div>
@@ -39,21 +38,20 @@ export const ConsultaEscolar = ({props,calificaciones,planEstudio}) => {
 
 const styles = {
     container: {
+        fontFamily: 'arial',
+        display:'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
         textAlign:'center',
-        fontFamily:'Arial',
-        width:'100%',
-        overflow:'scroll'
+        width: '50%',
+        marginBottom: '10%',
     },
     container2:{
-        display:'flex',
-        justifyContent: 'space-around',
-        flexDirection: 'column',
     },
-    container3: {
+    containerGeneral: {
         display:'flex',
-    },
-    container4:{
-        display:'flex',
-        width:'100%'
+        textAlign:'center',
+        justifyContent: 'center',
+        marginBottom: '25px'
     }
 }
