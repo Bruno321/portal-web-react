@@ -1,4 +1,5 @@
 import React,{useState,useEffect} from 'react';
+import axios from 'axios'
 
 export const InformacionPersonalTrabajador = ({props,numTrabajador}) => {
 
@@ -10,6 +11,14 @@ export const InformacionPersonalTrabajador = ({props,numTrabajador}) => {
         setForm(datosPersonales)
     },[props])
 
+    const token =  window.localStorage.getItem('token')
+
+    const handleClick = () => {
+        axios.post('http://localhost:3000/actualizarTrabajador',{data:form},{headers:{"Access-Control-Allow-Origin":null,'Authorization': `Bearer ${token}`}, mode: 'cors'})
+        .then((response)=>{
+            console.log(response.data.message)
+        }).catch((e)=>console.log(e))
+    }
     return (
         <div style={styles.container}>
             <div style={styles.datosContainer}>
@@ -56,10 +65,9 @@ export const InformacionPersonalTrabajador = ({props,numTrabajador}) => {
                     </div>
 
                 </div>
-                {/* <DatosNoEditables fecha={datosPersonales.fechaNacimiento} pais={datosPersonales.paisNacimiento} estado={datosPersonales.estadoNacimiento} municipio={datosPersonales.municipioNacimiento}/> */}
             </div>
             
-            <div style={styles.button} >
+            <div style={styles.button} onClick={handleClick}>
                 <h3>Enviar</h3>
             </div>
         </div>
