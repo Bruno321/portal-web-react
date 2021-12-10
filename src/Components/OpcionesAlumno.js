@@ -56,14 +56,32 @@ export const OpcionesAlumno = () => {
             carreraId:institucionSelected,
             institucionId:carreraSelected
         }
-        console.log(data)
-        axios.post('http://localhost:3000/asignarInformacionCarrera',{data:data},{headers:{"Access-Control-Allow-Origin":null,'Authorization': `Bearer ${token}`}, mode: 'cors'})
-            .then((response)=>{
-                console.log(response)
-            }).catch((e)=>{
-                console.log(e)
-            })
         
+        Swal.fire(
+            '¿Continuar?',
+            `Dicha informacion sera asignada al alumno`,
+            'question'
+          ).then((e)=>{
+              if(e.isConfirmed){
+                axios.post('http://localhost:3000/asignarInformacionCarrera',{data:data},{headers:{"Access-Control-Allow-Origin":null,'Authorization': `Bearer ${token}`}, mode: 'cors'})
+                .then((response)=>{
+                    if(response.data.error){
+                        setError(true)
+                    } else {
+                        Swal.fire(
+                            `Informacion asignada correctamente`,
+                            'success'
+                          ).then(()=>{
+                            setTimeout(function(){
+                                location = '/'
+                              },1000)
+                          })
+                    }
+                }).catch((e)=>{
+                    console.log(e)
+                })
+              }
+          })
     }
 
     const darBaja = () => {

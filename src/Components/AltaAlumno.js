@@ -66,7 +66,7 @@ export const AltaAlumno = () => {
     }
     return (
         <div style={styles.container}>
-            <h2 style={{fontFamily: 'arial', fontSize:'30px', fontWeight: 'normal'}}>Alta de alumno</h2>
+            <h2>Alta de alumno</h2>
             {
                 error ? <h3 style={{color:'red'}}>El alumno ya existe</h3> : <div></div>
             }
@@ -227,20 +227,22 @@ const styles = {
         fontSize:'18px',
         padding: '10px'
     },
+    container5_1:{
+        width: '50%',
+        fontFamily:'Arial',
+        fontSize:'18px',
+        padding: '10px'
+    },
     button:{
-        display: 'flex',
-        justifyContent:'center',
-        alignItems:'center',
-        width: '25vh',
-        height: '5vh',
-        marginTop: '1vh',
-        borderRadius: '25px',
-        color: 'white',
-        fontFamily: 'arial',
-        textAlign:'center',
+        fontFamily:'Arial',
+        fontSize:'20px',
         cursor:'pointer',
-        backgroundColor: '#20B0A0',
-        marginBottom: '5vh',
+        marginBottom:'20px',
+        width:'50%',
+        height:'5vh',
+        display: 'flex',
+        alignItems:'center',
+        justifyContent:'center'
     },
     container6:{
         display:'flex',

@@ -25,18 +25,14 @@ const Provider = ({children})=> {
         activateAuth:(e,usuario,nip)=>{
             e.preventDefault();
 
+            // console.log(usuario,ip)
             if(isAdmin){
+                console.log("ENTRE A ADMIN")
                 axios.post('http://localhost:3000/loginTrabajador',{
                     numTrabajador:usuario,
                     nip:nip
                 },{headers:{"Access-Control-Allow-Origin":null}, mode: 'cors',}).then((response)=>{
-
-                    // es admin
-                    if(response.data.isAdmin){
-                        window.localStorage.setItem('isAdmin',true)
-                    }else{
-                        window.localStorage.setItem('isProfesor',true)
-                    }
+                    window.localStorage.setItem('isAdmin',true)
                     setIsAuth(true)
                     window.localStorage.setItem('token',response.data.message)
                 }).catch((e)=>{
@@ -44,20 +40,17 @@ const Provider = ({children})=> {
                     console.log(e)
                 })
             }else{
+                console.log("ENTRE A ESTUDIANTE")
+
                 axios.post('http://localhost:3000/loginAlumno',{
                     exp:usuario,
                     nip:nip
                 },{headers:{"Access-Control-Allow-Origin":null}, mode: 'cors',}).then((response)=>{
                     setIsAuth(true)
-                    // estudiante se activa con el token
-
-                    if(isStudent){
-                        window.localStorage.setItem('isStudent',true)
-                    }
-                    // se activa con el checkox
-                    // Devuelve un token y lo guardamos
+                    window.localStorage.setItem('isStudent',true)
                     window.localStorage.setItem('token',response.data.message)
                 }).catch((e)=>{
+                    console.log("ENTRE A TRBAJADOR")
                     axios.post('http://localhost:3000/loginTrabajador',{
                         numTrabajador:usuario,
                         nip:nip

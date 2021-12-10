@@ -4,7 +4,7 @@ import React, {useState,useEffect} from 'react';
 import { DatosEditables } from './DatosEditables';
 import { DatosNoEditables } from './DatosNoEditables';
 import { DatosPadres } from './DatosPadres';
-
+import Swal from 'sweetalert2'
 
 export const InformacionPersonal = ({props}) => {
 
@@ -33,10 +33,32 @@ export const InformacionPersonal = ({props}) => {
         // console.log(form)
         // console.log(datosMadre)
         console.log(padreForm)
-        axios.post('http://localhost:3000/actualizarAlumno',{data:{form,madreForm,padreForm}},{headers:{"Access-Control-Allow-Origin":null,'Authorization': `Bearer ${token}`}, mode: 'cors'})
-        .then((response)=>{
-            console.log(response.data.message)
-        }).catch((e)=>console.log(e))
+            Swal.fire(
+                '¿Continuar?',
+                `Tus datos seran actualizados`,
+                'question'
+              ).then((e)=>{
+                  if(e.isConfirmed){
+                    axios.post('http://localhost:3000/actualizarAlumno',{data:{form,madreForm,padreForm}},{headers:{"Access-Control-Allow-Origin":null,'Authorization': `Bearer ${token}`}, mode: 'cors'})
+                    .then((response)=>{
+                        if(response.data.error){
+                            setError(true)
+                        } else {
+                            Swal.fire(
+                                `${response.data.message}`,
+                                'success'
+                              ).then(()=>{
+                                setTimeout(function(){
+                                    location = ''
+                                  },500)
+                              })
+                        }
+                    }).catch((e)=>{
+                        console.log(e)
+                    })
+                  }
+              })
+     
 
     }
 

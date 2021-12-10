@@ -1,5 +1,6 @@
 import React,{useState,useEffect} from 'react';
 import axios from 'axios'
+import Swal from 'sweetalert2';
 
 export const InformacionPersonalTrabajador = ({props,numTrabajador}) => {
 
@@ -14,10 +15,32 @@ export const InformacionPersonalTrabajador = ({props,numTrabajador}) => {
     const token =  window.localStorage.getItem('token')
 
     const handleClick = () => {
-        axios.post('http://localhost:3000/actualizarTrabajador',{data:form},{headers:{"Access-Control-Allow-Origin":null,'Authorization': `Bearer ${token}`}, mode: 'cors'})
-        .then((response)=>{
-            console.log(response.data.message)
-        }).catch((e)=>console.log(e))
+        Swal.fire(
+            '¿Continuar?',
+            `Tus datos seran actualizados`,
+            'question'
+          ).then((e)=>{
+              if(e.isConfirmed){
+                axios.post('http://localhost:3000/actualizarTrabajador',{data:form},{headers:{"Access-Control-Allow-Origin":null,'Authorization': `Bearer ${token}`}, mode: 'cors'})
+                .then((response)=>{
+                    if(response.data.error){
+                        setError(true)
+                    } else {
+                        Swal.fire(
+                            `${response.data.message}`,
+                            'success'
+                          ).then(()=>{
+                            setTimeout(function(){
+                                location = ''
+                              },500)
+                          })
+                    }
+                }).catch((e)=>{
+                    console.log(e)
+                })
+              }
+          })
+       
     }
     return (
         <div style={styles.container}>
