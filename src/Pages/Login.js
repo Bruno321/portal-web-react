@@ -68,7 +68,7 @@ export const Login = () => {
 
                         </form>
                     </div>
-
+                    <a href="/register">KAKOTA</a>
                 </div>
             </div>
             <Footer/>

@@ -5,7 +5,6 @@ export const MateriasActuales = ({props}) => {
 
     const materias = props
     
-
     const titles = [
         {data: 'Materia',isTitle:true},
         {data:'Grupo',isTitle:true},
@@ -14,6 +13,9 @@ export const MateriasActuales = ({props}) => {
         {data: 'Creditos',isTitle:true},
     ]
 
+    materias.forEach((e)=>{
+        console.log(e)
+    })
 
     return (
         <div style={styles.container}>

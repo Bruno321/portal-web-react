@@ -1,9 +1,7 @@
 import React, {useState,useContext} from 'react';
 import Swal from 'sweetalert2'
 import axios from 'axios'
-
 export const Register = () => {
-
 
     const [error,setError] = useState(false)
     const [checked,setChecked] = useState()
@@ -61,7 +59,7 @@ export const Register = () => {
         <div style={styles.container}>
             <h2>Alta de profesor</h2>
             {
-                error ? <h3 style={{color:'red'}}>El alumno ya existe</h3> : <div></div>
+                error ? <h3 style={{color:'red'}}>El profesor ya existe</h3> : <div></div>
             }
             <div style={styles.container2}>
                 <div style={styles.container4}>
@@ -130,6 +128,9 @@ export const Register = () => {
             </div>
             <div style={styles.container6}>
                 <button style={styles.button} onClick={handleClick}>Enviar</button>
+            </div>
+
+            <div>
             </div>
         </div>
     )
