@@ -94,18 +94,18 @@ export const OpcionesAlumno = () => {
     }
 
     return (
-        <div>
-            <h3>Opciones de </h3>
+        <div style={styles.container}>
+            <label style={styles.labels}>Opciones del alumno</label>
             <div>
-                <h3>Dar de baja</h3>
+                <h3 style={styles.h3}>Dar de baja</h3>
                 <img src={minus} style={{cursor:'pointer'}} onClick={darBaja}/>
             </div>
-            <div>
-                <h3>Aisgnar informacion de carrera</h3>
-                <div>
+            <div style={styles.container}>
+                <label style={styles.labels}>Asignar informacion de carrera</label>
+                <div style={{display: 'flex',justifyContent:'center',alignItems:'center',flexDirection: 'column',}}>
                     <div>
-                        <h3>Plan de estudio</h3>
-                        <select name="plan" id="0" onChange={(e)=>setPlanSelected(e.target.value)} value={planSelected}>
+                        <h3 style={styles.h3}>Plan de estudio</h3>
+                        <select style={styles.select} name="plan" id="0" onChange={(e)=>setPlanSelected(e.target.value)} value={planSelected}>
                             {
                                 planEstudioContainer.planEstudios.map((e,i)=>{
                                     return (
@@ -117,8 +117,8 @@ export const OpcionesAlumno = () => {
                     </div>
 
                     <div>
-                        <h3>Carrera</h3>
-                        <select name="carrera" id="1" onChange={(e)=>setCarreraSelected(e.target.value)} value={carreraSelected}>
+                        <h3 style={styles.h3}>Carrera</h3>
+                        <select style={styles.select} name="carrera" id="1" onChange={(e)=>setCarreraSelected(e.target.value)} value={carreraSelected}>
                             {
                                 carrerasContainer.carreras.map((e,i)=>{
                                     return (
@@ -130,8 +130,8 @@ export const OpcionesAlumno = () => {
                     </div>
 
                     <div>
-                        <h3>Institucion</h3>
-                        <select name="institucion" id="2" onChange={(e)=>setInstitucionSelected(e.target.value)} value={institucionSelected}>
+                        <h3 style={styles.h3}>Institucion</h3>
+                        <select style={styles.select} name="institucion" id="2" onChange={(e)=>setInstitucionSelected(e.target.value)} value={institucionSelected}>
                             {
                                 institucionesContainer.instituciones.map((e,i)=>{
                                     return (
@@ -142,9 +142,50 @@ export const OpcionesAlumno = () => {
                         </select> 
                     </div>
 
-                    <div><button onClick={handleClick}>Aceptar</button></div>
+                    <div style={styles.button} onClick={handleClick}>Aceptar</div>
                 </div>
             </div>
         </div>
     )
+}
+
+const styles = {
+    container: {
+        display: 'flex',
+        justifyContent:'center',
+        alignItems:'center',
+        flexDirection: 'column',
+        width: '100%',
+        textAlign: 'center',
+        // backgroundColor: 'red',
+    },
+    labels:{
+        fontFamily: 'arial', 
+        fontSize:'30px'
+    },
+    h3:{
+        fontFamily: 'arial',
+        fontWeight: 'normal'
+    },
+    select:{
+        // backgroundColor: 'red',
+        width: '35vh',
+        fontFamily: 'arial',
+        fontWeight: 'normal',
+        fontSize: '20px',
+    },
+    button:{
+        display: 'flex',
+        justifyContent:'center',
+        alignItems:'center',
+        width: '25vh',
+        height: '5vh',
+        marginTop: '1vh',
+        borderRadius: '25px',
+        color: 'white',
+        fontFamily: 'arial',
+        textAlign:'center',
+        cursor:'pointer',
+        backgroundColor: '#20B0A0'
+    }
 }

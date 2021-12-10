@@ -23,6 +23,7 @@ export const styles = {
     },
     container2:{
         display:'flex',
+        width: '100%',
     },
     
     

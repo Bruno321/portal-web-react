@@ -9,14 +9,14 @@ export const Materia = ({props,isTitle,isImage,isDesplegable}) => {
 
     if(isTitle){
         return  (
-            <div style={styles.container3}>
+            <div style={styles.container1}>
                 <h3>{props}</h3>
             </div>
         )
     }
     if(isImage){
         return(
-            <div style={styles.container3}>
+            <div style={styles.container2}>
                 {/* TODO esto va a cambiar a otro estado */}
                 <img style={styles.img} src={add} onClick={()=>changueItem(7)}/>
             </div>
@@ -45,9 +45,23 @@ export const Materia = ({props,isTitle,isImage,isDesplegable}) => {
 }
 
 const styles = {
+    container1:{
+        wordWrap: 'break-word',
+        width:'50%',
+        backgroundColor: '#636e72',
+        color: 'white',
+
+    },
+    container2:{
+        wordWrap: 'break-word',
+        width:'50%',
+        
+    },
     container3:{
         wordWrap: 'break-word',
-        width:'50%'
+        width:'50%',
+        
+        
     },
     img:{
         cursor:'pointer'

@@ -43,30 +43,30 @@ export const AlumnosAdmin = () => {
 
     return (
         <div style={styles.container}>
-            <div style={styles.alumnoAlta} onClick={()=>changueItem(9)}><h2>Dar de alta a alumno</h2></div>
+            <div style={styles.alumnoAlta} onClick={()=>changueItem(9)}><h2 style={{alignItems: 'center'}}>Dar de alta a alumno</h2></div>
             <div style={styles.container2}>
                 <MateriasActualesContainer props={titles}/>
                 {
                     alumnos.datos.map((e,i)=>{
                         return (
                             <div key={i} style={styles.container3}>
-                                <div style={styles.container4}>
+                                <div style={i%2 == 0? styles.container4_1:styles.container4_2}>
                                     {e.expediente}
                                 </div>
 
-                                <div style={styles.container4}>
+                                <div style={i%2 == 0? styles.container4_1:styles.container4_2}>
                                     {e.datosPersonaleId}  
                                 </div>
 
-                                <div style={styles.container4}>
+                                <div style={i%2 == 0? styles.container4_1:styles.container4_2}>
                                     {e.semestre}  
                                 </div>
 
-                                <div style={styles.container4}>
+                                <div style={i%2 == 0? styles.container4_1:styles.container4_2}>
                                 {e.creditosObtenidos}
                                     
                                 </div>
-                                <div style={styles.container4} onClick={()=>handleClick(e.expediente)}>
+                                <div style={i%2 == 0? styles.container4_1:styles.container4_2} onClick={()=>handleClick(e.expediente)}>
                                     <img src={add} style={{cursor:'pointer'}} />
                                 </div>
                             </div>
@@ -85,22 +85,41 @@ const styles = {
         textAlign:'center'
     },
     container2:{
-        marginTop:'20px'
+        marginTop:'20px',
+        border: '1px solid #E0E0E0',
     },
     container3:{
-        marginTop:'20px',
+        // marginTop:'20px',
         display:'flex',
+        border: '1px solid #E0E0E0',
     },
-    container4:{
+    container4_1:{
         width:'20%',
         textAlign:'center',
         height:'5vh',
         display:'flex',
         alignItems:'center',
-        justifyContent:'center'
+        justifyContent:'center',
+        backgroundColor: '#dfe6e9',
+    },
+    container4_2:{
+        width:'20%',
+        textAlign:'center',
+        height:'5vh',
+        display:'flex',
+        alignItems:'center',
+        justifyContent:'center',
+        backgroundColor: '#c8d6e5',
     },
     alumnoAlta:{
+        display: 'flex', 
+        justifyContent:'center', 
+        alignItems:'center',
         cursor: 'pointer',
-        backgroundColor:'gray',
+        backgroundColor:'#20B0A0',
+        color: 'white',
+        borderRadius: '25px',
+        height: '5vh',
+        width: '100%',
     }
 }

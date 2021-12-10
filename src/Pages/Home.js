@@ -184,7 +184,7 @@ export const Home = () => {
 const styles = {
     container: {
         display: 'flex',
-        height: '60vh',
+        flex: '1',
         justifyContent: 'center',
     }
 }

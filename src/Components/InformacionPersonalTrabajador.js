@@ -23,47 +23,46 @@ export const InformacionPersonalTrabajador = ({props,numTrabajador}) => {
         <div style={styles.container}>
             <div style={styles.datosContainer}>
                 <div>
-                    <div>
-                        Calle Y numero
-                        <input  value={form.calleYnumero} onChange={(e)=>setForm({...form,calleYnumero:e.target.value})}/>
+                    <div style={styles.container4}>
+                        <div style={styles.container5_1}>Nombre</div>
+                        <div style={styles.container5_2}>{form.nombre}</div>
                     </div>
-                    <div>
-                        Colonia
-                        <input defaultValue={form.colonia} onChange={(e)=>setForm({...form,colonia:e.target.value})}/>
+                    <div style={styles.container4}>
+                        <div style={styles.container5_1}>Numero de trabjador</div>
+                        <div style={styles.container5_2}>{numTrabajador}</div>
                     </div>
-                    <div>
-                        Codigo postal
-                        <input defaultValue={form.codigoPostal} onChange={(e)=>setForm({...form,codigoPostal:e.target.value})}/>
+                    <div style={styles.container4}>
+                        <div style={styles.container5_1}>Calle Y numero</div>
+                        <input style={styles.container5_2} value={form.calleYnumero} onChange={(e)=>setForm({...form,calleYnumero:e.target.value})}/>
                     </div>
-                    <div>
-                        Estado
-                        <input defaultValue={form.estado} onChange={(e)=>setForm({...form,estado:e.target.value})}/>
+                    <div style={styles.container4}>
+                        <div style={styles.container5_1}>Colonia</div>
+                        <input style={styles.container5_2} defaultValue={form.colonia} onChange={(e)=>setForm({...form,colonia:e.target.value})}/>
                     </div>
-                    <div>
-                        Municipio
-                        <input defaultValue={form.municipio} onChange={(e)=>setForm({...form,municipio:e.target.value})}/>
+                    <div style={styles.container4}>
+                        <div style={styles.container5_1}>Codigo postal</div>
+                        <input style={styles.container5_2} defaultValue={form.codigoPostal} onChange={(e)=>setForm({...form,codigoPostal:e.target.value})}/>
                     </div>
-                    <div>
-                        Telefono fijo
-                        <input defaultValue={form.telefonoFijo} onChange={(e)=>setForm({...form,telefonoFijo:e.target.value})}/>
+                    <div style={styles.container4}>
+                        <div style={styles.container5_1}>Estado</div>
+                        <input style={styles.container5_2} defaultValue={form.estado} onChange={(e)=>setForm({...form,estado:e.target.value})}/>
                     </div>
-                    <div>
-                        Correo electronico
-                        <input defaultValue={form.email} onChange={(e)=>setForm({...form,email:e.target.value})}/>
+                    <div style={styles.container4}>
+                        <div style={styles.container5_1}>Municipio</div>
+                        <input style={styles.container5_2} defaultValue={form.municipio} onChange={(e)=>setForm({...form,municipio:e.target.value})}/>
                     </div>
-                    <div>
-                        Telefono celular
-                        <input defaultValue={form.telefonoCelular} onChange={(e)=>setForm({...form,telefonoCelular:e.target.value})}/>
+                    <div style={styles.container4}>
+                        <div style={styles.container5_1}>Telefono fijo</div>
+                        <input style={styles.container5_2} defaultValue={form.telefonoFijo} onChange={(e)=>setForm({...form,telefonoFijo:e.target.value})}/>
                     </div>
-                </div>
-                <div style={styles.container2}>
-                    <div>
-                        Nombre: {form.nombre}
+                    <div style={styles.container4}>
+                        <div style={styles.container5_1}>Correo electronico</div>
+                        <input style={styles.container5_2} defaultValue={form.email} onChange={(e)=>setForm({...form,email:e.target.value})}/>
                     </div>
-                    <div>
-                        Numero de trabjador: {numTrabajador}
+                    <div style={styles.container4}>
+                        <div style={styles.container5_1}>Telefono celular</div>
+                        <input style={styles.container5_2} defaultValue={form.telefonoCelular} onChange={(e)=>setForm({...form,telefonoCelular:e.target.value})}/>
                     </div>
-
                 </div>
             </div>
             
@@ -78,27 +77,47 @@ export const InformacionPersonalTrabajador = ({props,numTrabajador}) => {
 const styles = {
     container: {
         display: 'flex',
-        flexDirection: 'column',
-    },
-    container2:{
-        fontFamily:'Arial',
-        display:'flex',
-        flexDirection:'column',
+        justifyContent:'center',
         alignItems:'center',
-        marginTop:'10px',
+        flexDirection: 'column',
+        width: '100%',
     },
     datosContainer: {
         display:'flex',
         justifyContent: 'space-evenly',
     },
-    datosPadresContainer: {
-        display: 'flex',
-        marginTop:'5vh',
-
-    },
     button: {
-        marginTop:'5vh',
+        display: 'flex',
+        justifyContent:'center',
+        alignItems:'center',
+        width: '25vh',
+        height: '5vh',
+        marginTop: '1vh',
+        borderRadius: '25px',
+        color: 'white',
+        fontFamily: 'arial',
         textAlign:'center',
-        cursor:'pointer'
-    }
+        cursor:'pointer',
+        backgroundColor: '#20B0A0'
+    },
+    container4:{
+        width: '100%',
+        display:'flex',
+        marginTop:'10px',
+    },
+    container5_1:{
+        width: '100%',
+        fontFamily:'Arial',
+        fontSize:'18px',
+        textAlign: 'center',
+        display: 'flex',
+        justifyContent:'center',
+        alignItems:'center',
+    },
+    container5_2:{
+        width: '100%',
+        fontFamily:'Arial',
+        fontSize:'18px',
+        padding: '10px',
+    },
 }

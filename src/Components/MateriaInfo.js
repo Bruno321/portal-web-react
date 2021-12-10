@@ -51,16 +51,16 @@ export const MateriaInfo  = () => {
 
     console.log('ESTADO GENERAL: ',calificacion)
     return (
-        <div>
-            <h3>GRUPO</h3>
-            <div>
+        <div style={styles.container}>
+            <h3 style={{fontFamily: 'arial', fontSize:'30px', fontWeight: 'normal'}}>GRUPO</h3>
+            <div style={styles.container2}>
                 <MateriasActualesContainer props={titles}/>
                 {
                     alumnos.alumnosList.map((e,i)=>{
                         return (
-                            <div key={i}>
-                                {e.alumnoId.datosPersonaleId}
-                                {e.alumnoId.expediente}
+                            <div style={i%2 == 0? styles.container3_1:styles.container3_2} key={i}>
+                                <label>{e.alumnoId.expediente}</label>
+                                <label>{e.alumnoId.datosPersonaleId}</label>
                                 {/* <select name="cal" id="cal">
                                     <option value="na">NA</option>
                                     <option value="6">6</option>
@@ -69,26 +69,73 @@ export const MateriaInfo  = () => {
                                     <option value="9">9</option>
                                     <option value="10">10</option>
                                 </select>  */}
-                                <input  placeholder={"Calificacion"} onChange={(e)=>onChange(e)} name={i} />
-                                <button value={e.alumnoId.expediente} id={i} onClick={(e)=>handleClick(e)}>Subir calificacion</button>
-
+                                <div>
+                                    <input style={styles.califInput} placeholder={"Calificacion"} onChange={(e)=>onChange(e)} name={i} />
+                                    <button style={styles.button} value={e.alumnoId.expediente} id={i} onClick={(e)=>handleClick(e)}>Subir calificación</button>
+                                </div>
                             </div>
                         )
                     })
                 }
             </div>
-
         </div>
     )
 }
 
 const styles = {
     container: {
+        display:'flex',
+        width: '100%',
+        flexDirection:'column',
+        justifyContent:'center',
+        alignItems:'center',
+        // backgroundColor:'red'
     },
     container2:{
-        worWrap: 'break-word',
         display:'flex',
-        justifyContent: 'space-evenly',
-        width:'100%',
+        width: '100%',
+        flexDirection:'column',
+        justifyContent:'center',
+        alignItems:'center',
+        // backgroundColor:'blue',
+        width: '50%',
+        fontFamily: 'arial',
+        textAlign: 'center',
+        
     },
+    container3_1:{
+        width:'100%',
+        textAlign:'center',
+        height:'5vh',
+        display:'flex',
+        alignItems:'center',
+        justifyContent: 'space-around',
+        backgroundColor: '#dfe6e9',
+        
+    },
+    container3_2:{
+        width:'100%',
+        textAlign:'center',
+        height:'5vh',
+        display:'flex',
+        alignItems:'center',
+        justifyContent:'center',
+        backgroundColor: '#c8d6e5',
+    },
+    califInput:{
+        width: '7.5vh',
+        height: '5vh',
+    },
+    button:{
+        justifyContent:'center',
+        alignItems:'center',
+        width: '15vh',
+        height: '5vh',
+        borderRadius: '25px',
+        color: 'white',
+        fontFamily: 'arial',
+        textAlign:'center',
+        cursor:'pointer',
+        backgroundColor: '#20B0A0'
+    }
 }

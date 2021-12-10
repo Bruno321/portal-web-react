@@ -37,7 +37,7 @@ const styles = {
         backgroundColor: '#268A7E'
     },
     homeInformation: {
-        flex: '10%',
+        // flex: '15%',
         display:'flex',
         padding: '15px',
         // backgroundColor: '#F00'
@@ -48,7 +48,8 @@ const styles = {
     information: {
         flex: '80',
         textAlign: 'center',
-        fontSize: '15px'
+        fontSize: '15px',
+        fontFamily: 'arial',
     },
     button: {
         marginTop:'5%',

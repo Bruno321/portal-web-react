@@ -39,7 +39,7 @@ export const Register = () => {
                     } else {
                         Swal.fire(
                             `${form.nombre} creado exitosamente`,
-                            'success'
+                            ''
                           ).then(()=>{
                             setTimeout(function(){
                                 location = '/login'

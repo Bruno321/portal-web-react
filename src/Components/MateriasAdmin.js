@@ -33,23 +33,23 @@ export const MateriasAdmin = ({props}) => {
 
     return (
         <div style={styles.container}>
-            <h2>Materias impartidas</h2>
+            <label style={{fontFamily: 'arial', fontSize:'30px'}}>Materias impartidas</label>
             <div style={styles.container2}>
                 <div style={styles.container3}>
                     <div style={styles.container4}>
-                        Nombre
+                        <h3>Nombre</h3>
                     </div>
                     <div style={styles.container4}>
-                        Grupo
+                        <h3>Grupo</h3>
                     </div>
                     <div style={styles.container4}>
-                    Subir calificaciones/ver grupo
+                        <h3>Subir calificaciones/Ver grupo</h3>
                     </div>
                 </div>
                 {
                     materiasImpartidas.materiasList.map((e,i)=>{
                         return (
-                            <div key={i} style={styles.container5}>
+                            <div key={i} style={i%2 == 0? styles.container5_1 : styles.container5_2}>
                                 <div style={styles.container6}>
                                     {e.materiasPlanEstudioCveMat.nombre}
                                 </div>
@@ -81,17 +81,33 @@ const styles = {
         flexDirection: 'column',
     },
     container3:{
-        display: 'flex'
+        display: 'flex',
+        width:'100%',
+        backgroundColor: '#636e72',
+        color: 'white',
     },
     container4:{
         width: '33.3%',
-        fontSize:'20px',
-        marginTop:'20px'
+        // fontSize:'20px',
+        // marginTop:'20px'
     },
-    container5:{
-        marginTop:'10px',
-        width: '100%',
-        display: 'flex',
+    container5_1:{
+        width:'100%',
+        textAlign:'center',
+        height:'5vh',
+        display:'flex',
+        alignItems:'center',
+        justifyContent:'center',
+        backgroundColor: '#dfe6e9',
+    },
+    container5_2:{
+        width:'100%',
+        textAlign:'center',
+        height:'5vh',
+        display:'flex',
+        alignItems:'center',
+        justifyContent:'center',
+        backgroundColor: '#c8d6e5',
     },
     img:{
         cursor:'pointer'
