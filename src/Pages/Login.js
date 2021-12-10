@@ -5,10 +5,12 @@ import { Input } from '../Components/Input';
 
 import logoPortal from '../assets/logo_portal.png'
 import logoUaq from '../assets/logoUaq.png'
+import { Redirect } from '@reach/router';
 
 export const Login = () => {
     // Usamos el consumer para poder usar la funcion que pasamos en el provider
 
+    const [redirect,setRedirect] = useState(false)
     const [usuario,setUsuario] = useState('')
     const [nip,setNip] = useState('')
 
@@ -68,7 +70,11 @@ export const Login = () => {
 
                         </form>
                     </div>
-                    <a href="/register">KAKOTA</a>
+                    <button onClick={()=>setRedirect(true)}>Redireccionar</button>
+                    {
+                        redirect ? <Redirect from='/login' to='/register' noThrow/>:  <div></div>
+                    }
+                   
                 </div>
             </div>
             <Footer/>

@@ -1,8 +1,10 @@
 import React, {useState,useContext} from 'react';
 import Swal from 'sweetalert2'
 import axios from 'axios'
+import { Redirect } from '@reach/router';
 export const Register = () => {
 
+    const [redirect,setRedirect] = useState(false)
     const [error,setError] = useState(false)
     const [checked,setChecked] = useState()
     const [form,setForm] = useState({
@@ -40,7 +42,7 @@ export const Register = () => {
                             ''
                           ).then(()=>{
                             setTimeout(function(){
-                                location = '/login'
+                                setRedirect(true)
                               },1000)
                           })
                     }
@@ -131,6 +133,10 @@ export const Register = () => {
             </div>
 
             <div>
+                {
+                    redirect ? <Redirect from='/register' to='/login' noThrow/>: <div></div>
+                    
+                }
             </div>
         </div>
     )
